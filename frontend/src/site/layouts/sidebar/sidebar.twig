@@ -1,0 +1,22 @@
+<aside class="page-sidebar w-sidebar">
+	<ul class="list-unstyled">
+		<li class="sidebar-item">
+			{% render "@component-navigation" with {
+			title:'Related Posts:',
+			items:config.page.related_posts,
+			nav_classes:'related-posts',
+			item_class:'',
+			link_class:''
+		} %}
+		</li>
+		<li class="sidebar-item">
+			{% render "@component-navigation" with {
+			title:'Popular Tags:',
+			items:config.page.tags,
+			nav_classes:'',
+			item_class:'',
+			link_class:''
+		} %}
+		</li>
+	</ul>
+</aside>

@@ -1,0 +1,11 @@
+:where(.article--two-column) {
+	display: grid;
+
+	@include media-breakpoint-up(lg) {
+		grid-template-areas: 'article aside';
+		grid-template-columns: auto auto;
+		> aside {
+			grid-area: aside;
+		}
+	}
+}

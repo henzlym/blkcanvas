@@ -1,0 +1,21 @@
+{#
+	{% render "@components-article-meta" with {
+		author: {
+			name: 'John Doe',
+			prefix: 'By',
+			url: '#'
+		},
+		date: {
+			published: 'January 1, 2021',
+			updated: 'January 1, 2021'
+		}
+		actions:{
+			items: ['Action', 'Another action', 'Something else here'],
+			title: 'Dropdown button'
+		}
+	} %}
+#}
+<p class="post-meta">
+	{% render "@partials-author" with author %}
+	{% render "@partials-date" with date %}
+</p>

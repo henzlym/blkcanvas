@@ -1,0 +1,8 @@
+<div class="date">
+	{% if modified %}
+		<span class="updated modified">
+			{{ modified|date('M j Y') }}</span>
+	{% endif %}
+	<span class="published">
+		{{ date|date('M j Y') }}</span>
+</div>

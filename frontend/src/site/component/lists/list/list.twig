@@ -1,0 +1,10 @@
+{% if title %}
+	<h2 class="list-group-title {{ title_classes }}">{{ title }}</h2>
+{% endif %}
+<ul class="list-group {{ classes }}">
+	{% for item in items %}
+		<li class="list-group-item {{ item_classes }}">
+			{% render "@component-list-item" with item %}
+		</li>
+	{% endfor %}
+</ul>

@@ -1,0 +1,29 @@
+<div class="page-header">
+
+	<p class="page-category-wrapper">
+		{% render '@partials-link' with {
+			aria_label: '',
+			classes:'',
+			icon: '',
+			icon_height:16,
+			icon_width:16,
+			modifier:'',
+			title: categories,
+			url: '#',
+			wrapper_classes:'',
+			rel:'category'
+		} %}
+	</p>
+
+	<h1 class="page-title">{{ title }}</h1>
+
+	<p class="lead">{{ excerpt }}</p>
+
+	<div class="page-meta-wrapper">
+		{% render "@partials-article-meta" with {
+			author: author,
+			date: date
+		} %}
+	</div>
+
+</div>

@@ -1,0 +1,15 @@
+<div class="page-thumbnail">
+	{% render "@content-figure" with {
+		classes:classes,
+		image: {
+			alt: image.alt,
+			classes:image.classes,
+			id:image.id,
+			loading: image.loading,
+			size: image.size,
+			sources: image.sources,
+			src: image.src
+		}
+
+	} %}
+</div>

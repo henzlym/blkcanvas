@@ -5,7 +5,7 @@ use Timber\Site;
 /**
  * Class StarterSite
  */
-class StarterSite extends Site {
+class StarterSite {
 
 	public $site_config = null;
 
@@ -17,18 +17,13 @@ class StarterSite extends Site {
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 
-		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
-		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
-		add_filter( 'timber/twig/environment/options', [ $this, 'update_twig_environment_options' ] );
-
-		parent::__construct();
 	}
 
 	/**
 	 * Enqueue scripts and styles.
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( 'blkcanvas-style', get_stylesheet_directory_uri() . '/style.css', array(), '1.00' );
+		wp_enqueue_style( 'site-main', get_stylesheet_directory_uri() . '/main.css', array(), '1.0.0' );
 	}
 
 	/**
@@ -45,26 +40,44 @@ class StarterSite extends Site {
 
 	}
 
-	/**
-	 * This is where you add some context
-	 *
-	 * @param string $context context['this'] Being the Twig's {{ this }}.
-	 */
-	public function add_to_context( $context ) {
-		$context['foo']   = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::context();';
-		$context['menu']  = Timber::get_menu();
-		if (count($this->site_config['menus'])>0) {
-			$menus = $this->site_config['menus'];
-			foreach ($menus as $key => $menu) {
-				$context['menus'][$key] = Timber::get_menu($key);
-			}
-		}
-		$context['site']  = $this;
+public function theme_get_image_sizes() : array {
 
-		return $context;
-	}
+    $sizes = array(
+        array(
+            'name' => 'thumbnail',
+            'width' => 360,
+            'height' => 0,
+            'crop' => true
+        ),
+        array(
+            'name' => 'small',
+            'width' => 540,
+            'height' => 0,
+            'crop' => true
+        ),
+        array(
+            'name' => 'medium',
+            'width' => 720,
+            'height' => 0,
+            'crop' => true
+        ),
+        array(
+            'name' => 'medium_large',
+            'width' => 960,
+            'height' => 0,
+            'crop' => true
+        ),
+        array(
+            'name' => 'large',
+            'width' => 1024,
+            'height' => 0,
+            'crop' => true
+        )
+    );
+
+    return apply_filters( 'theme_get_image_sizes', $sizes );
+
+}
 
 	public function theme_supports() {
 		// Add default posts and comments RSS feed links to head.
@@ -84,6 +97,19 @@ class StarterSite extends Site {
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+
+		$image_sizes = $this->theme_get_image_sizes();
+
+		if (is_array($image_sizes) && !empty($image_sizes) ) {
+			foreach ($image_sizes as $key => $images_size) {
+				add_image_size(
+					$images_size['name'],
+					$images_size['width'],
+					$images_size['height'],
+					$images_size['crop']
+				);
+			}
+		}
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -126,46 +152,6 @@ class StarterSite extends Site {
 		}
 
 	}
-
-	/**
-	 * his would return 'foo bar!'.
-	 *
-	 * @param string $text being 'foo', then returned 'foo bar!'.
-	 */
-	public function myfoo( $text ) {
-		$text .= ' bar!';
-		return $text;
-	}
-
-	/**
-	 * This is where you can add your own functions to twig.
-	 *
-	 * @param Twig\Environment $twig get extension.
-	 */
-	public function add_to_twig( $twig ) {
-		/**
-		 * Required when you want to use Twig’s template_from_string.
-		 * @link https://twig.symfony.com/doc/3.x/functions/template_from_string.html
-		 */
-		// $twig->addExtension( new Twig\Extension\StringLoaderExtension() );
-
-		$twig->addFilter( new Twig\TwigFilter( 'myfoo', [ $this, 'myfoo' ] ) );
-
-		return $twig;
-	}
-
-	/**
-	 * Updates Twig environment options.
-	 *
-	 * @link https://twig.symfony.com/doc/2.x/api.html#environment-options
-	 *
-	 * \@param array $options An array of environment options.
-	 *
-	 * @return array
-	 */
-	function update_twig_environment_options( $options ) {
-	    // $options['autoescape'] = true;
-
-	    return $options;
-	}
 }
+
+new StarterSite;

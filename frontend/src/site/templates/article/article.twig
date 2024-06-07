@@ -1,0 +1,19 @@
+{% render "@layouts-header" with page.header %}
+
+<main class="container py-5">
+	<article>
+		{% render "@partials-article-header" with {
+			title: title,
+			excerpt:
+				excerpt,
+			author: author,
+			date: date,
+			categories: categories
+		} %}
+
+		{% render "@partials-article-thumbnail" with featured_media %}
+		{% render "@partials-article-body" %}
+	</article>
+</main>
+
+{% render "@layouts-footer" with page.footer %}

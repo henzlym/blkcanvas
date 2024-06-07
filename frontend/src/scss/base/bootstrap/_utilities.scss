@@ -1,0 +1,92 @@
+$utilities: map-merge(
+	$utilities,
+	(
+		'aspect-ratio': (
+			property: aspect-ratio,
+			class: aspect-ratio,
+			responsive: true,
+			values: (
+				'square': calc(1 / 1),
+				'anamorphic': calc(23 / 9),
+				'fullscreen': calc(4 / 3),
+				'univisium': calc(2 / 1),
+				'widescreen': calc(16 / 9),
+				'vertical': calc(9 / 16)
+			)
+		),
+		'font-family': (
+			property: font-family,
+			class: font,
+			values: (
+				monospace: var(--#{$prefix}font-monospace)
+			)
+		),
+		'width': (
+			property: width,
+			class: w,
+			responsive: true,
+			values: (
+				25: 25%,
+				50: 50%,
+				75: 75%,
+				100: 100%,
+				auto: auto,
+				icon: 32px,
+				icon-sm: 16px,
+				avatar: 96px,
+				avatar-sm: 36px,
+				avatar-md: 54px,
+				site-logo: 150px,
+				sidebar: 300px,
+				thumbnail: 360px,
+				thumbnail-sm: 540px,
+				thumbnail-md: 720px,
+				thumbnail-lg: 1024px
+			)
+		),
+		'height': (
+			property: height,
+			class: h,
+			values: (
+				25: 25%,
+				50: 50%,
+				75: 75%,
+				100: 100%,
+				auto: auto,
+				avatar: 96px,
+				avatar-sm: 36px,
+				avatar-md: 54px,
+				site-logo: 38px,
+				thumbnail: 360px,
+				thumbnail-sm: 540px,
+				thumbnail-md: 720px,
+				thumbnail-lg: 1024px
+			)
+		),
+		'max-width': (
+			property: max-width,
+			responsive: true,
+			class: mw,
+			values: (
+				25: 25%,
+				50: 50%,
+				75: 75%,
+				100: 100%,
+				auto: auto,
+				avatar: 96px,
+				avatar-sm: 36px,
+				avatar-md: 54px,
+				container-sm: 540px,
+				container-md: 720px,
+				container-lg: 960px,
+				container-xl: 1140px,
+				container-xxl: 1320px,
+				site-logo: 173px,
+				thumbnail: 360px,
+				thumbnail-sm: 540px,
+				thumbnail-md: 720px,
+				thumbnail-lg: 1024px
+			)
+		)
+	)
+);
