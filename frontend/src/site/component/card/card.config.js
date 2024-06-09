@@ -7,7 +7,9 @@ module.exports = {
 		theme: themeConfig.card,
 		classes: '',
 		item: {
-			image: true,
+			image: {
+				classes: 'aspect-ratio-widescreen w-100'
+			},
 			title: 'Ornare turpis adipiscing pretium eget consectetur',
 			description:
 				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. Vivamus ac turpis quis eros consectetur ornare.',
@@ -39,16 +41,5 @@ module.exports = {
 		modifier: ''
 	},
 	display: {},
-	variants: [
-		{
-			name: 'image',
-			context: {
-				item: {
-					image: {
-						classes: 'aspect-ratio-widescreen'
-					}
-				}
-			}
-		}
-	]
+	variants: []
 };

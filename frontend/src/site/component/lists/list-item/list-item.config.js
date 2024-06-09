@@ -16,6 +16,18 @@ module.exports = {
 		meta: article.meta,
 		read_more: {
 			title: 'Read More'
+		},
+		meta: {
+			author: {
+				name: 'John Doe',
+				prefix: 'By',
+				url: '#',
+				avatar: false
+			},
+			date: {
+				published: '1st January, 2021',
+				updated: ''
+			}
 		}
 	},
 	variants: []

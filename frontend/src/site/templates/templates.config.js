@@ -7,7 +7,7 @@ module.exports = {
 		page: {
 			theme: 'green',
 			classes: 'portfolio--magazine',
-			mode: 'light',
+			mode: '',
 			header: {
 				classes: 'py-sm-3 py-md-5',
 				navbar: {
@@ -15,15 +15,16 @@ module.exports = {
 					site_brand: {
 						img: false,
 						url: '#',
-						title: 'Henzly Meghie'
+						title: 'Henzly Meghie',
+						classes: 'font-navbar-brand'
 					},
 					navigation: {
-						classes: 'ms-auto',
+						classes: '',
 						id: 'site-navigation',
 						item_class: '',
 						js_class: '',
 						link_class: '',
-						nav_classes: 'text-uppercase',
+						nav_classes: 'text-uppercase fs-header-nav fw-medium',
 						title: ''
 					},
 					navbar_collapse_classes: 'justify-content-end'

@@ -516,7 +516,7 @@ $body-emphasis-color: $black !default;
 // Style anchor elements.
 
 $link-color: shift-color($primary, 20%) !default;
-$link-decoration: underline !default;
+$link-decoration: none !default;
 $link-shade-percentage: 20% !default;
 $link-hover-color: shift-color($link-color, $link-shade-percentage) !default;
 $link-hover-decoration: null !default;
@@ -664,9 +664,9 @@ $aspect-ratios: (
 
 // scss-docs-start font-variables
 // stylelint-disable value-keyword-case
-$font-family-sans-serif: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans',
-	'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-	'Noto Color Emoji' !default;
+$font-family-sans-serif: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto,
+	'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji',
+	'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
 $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
 	monospace !default;
 // stylelint-enable value-keyword-case
@@ -709,13 +709,14 @@ $font-sizes: (
 	3: $h3-font-size,
 	4: $h4-font-size,
 	5: $h5-font-size,
-	6: $h6-font-size
+	6: $h6-font-size,
+	header-nav: 0.75rem
 ) !default;
 // scss-docs-end font-sizes
 
 // scss-docs-start headings-variables
 $headings-margin-bottom: $spacer * 0.5 !default;
-$headings-font-family: null !default;
+$headings-font-family: 'Oswald' !default;
 $headings-font-style: null !default;
 $headings-font-weight: 500 !default;
 $headings-line-height: 1.2 !default;
@@ -732,7 +733,7 @@ $display-font-sizes: (
 	6: 2.5rem
 ) !default;
 
-$display-font-family: null !default;
+$display-font-family: 'Oswald' !default;
 $display-font-style: null !default;
 $display-font-weight: 300 !default;
 $display-line-height: $headings-line-height !default;
@@ -1269,7 +1270,7 @@ $navbar-padding-x: $spacer !default;
 
 $navbar-nav-link-padding-x: 0.5rem !default;
 
-$navbar-brand-font-size: $font-size-lg !default;
+$navbar-brand-font-size: $h4-font-size !default;
 // Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
 $nav-link-height: $font-size-base * $line-height-base + $nav-link-padding-y * 2 !default;
 $navbar-brand-height: $navbar-brand-font-size * $line-height-base !default;
@@ -1419,18 +1420,18 @@ $placeholder-opacity-min: 0.2 !default;
 
 // scss-docs-start card-variables
 $card-spacer-y: $spacer !default;
-$card-spacer-x: $spacer !default;
+$card-spacer-x: 0 !default;
 $card-title-spacer-y: $spacer * 0.5 !default;
 $card-title-color: null;
 $card-subtitle-color: null !default;
-$card-border-width: var(--#{$prefix}border-width) !default;
+$card-border-width: 0 !default;
 $card-border-color: var(--#{$prefix}border-color-translucent) !default;
 $card-border-radius: var(--#{$prefix}border-radius) !default;
 $card-box-shadow: null !default;
 $card-inner-border-radius: subtract($card-border-radius, $card-border-width) !default;
-$card-cap-padding-y: $card-spacer-y * 0.5 !default;
-$card-cap-padding-x: $card-spacer-x !default;
-$card-cap-bg: rgba(var(--#{$prefix}body-color-rgb), 0.03) !default;
+$card-cap-padding-y: 0 !default;
+$card-cap-padding-x: 0 !default;
+$card-cap-bg: transparent !default;
 $card-cap-color: null !default;
 $card-height: null !default;
 $card-color: null !default;
@@ -1661,11 +1662,11 @@ $progress-bar-transition: width 0.6s ease !default;
 $list-group-color: var(--#{$prefix}body-color) !default;
 $list-group-bg: var(--#{$prefix}body-bg) !default;
 $list-group-border-color: var(--#{$prefix}border-color) !default;
-$list-group-border-width: var(--#{$prefix}border-width) !default;
+$list-group-border-width: 0 !default;
 $list-group-border-radius: var(--#{$prefix}border-radius) !default;
 
-$list-group-item-padding-y: $spacer * 0.5 !default;
-$list-group-item-padding-x: $spacer !default;
+$list-group-item-padding-y: 0 !default;
+$list-group-item-padding-x: 0 !default;
 // fusv-disable
 $list-group-item-bg-scale: -80% !default; // Deprecated in v5.3.0
 $list-group-item-color-scale: 40% !default; // Deprecated in v5.3.0

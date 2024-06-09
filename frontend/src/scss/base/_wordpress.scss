@@ -129,3 +129,26 @@ a img.aligncenter {
 	z-index: 100000;
 	/* Above WP toolbar. */
 }
+
+// Blockquotes - WP Blocks
+.typography {
+	.wp-block-pullquote,
+	blockquote {
+		margin-bottom: $blockquote-margin-y;
+		@include font-size($blockquote-font-size);
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+	}
+	cite {
+		margin-top: -$blockquote-margin-y;
+		margin-bottom: $blockquote-margin-y;
+		@include font-size($blockquote-footer-font-size);
+		color: $blockquote-footer-color;
+
+		&::before {
+			content: '\2014\00A0'; // em dash, nbsp
+		}
+	}
+}

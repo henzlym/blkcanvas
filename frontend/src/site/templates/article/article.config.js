@@ -5,7 +5,8 @@ module.exports = async () => {
 		label: 'Article',
 		status: 'prototype',
 		context: {
-			...posts[3]
+			...posts[3],
+			content: 'component-wysiwyg'
 		},
 		variants: []
 	};

@@ -10,7 +10,7 @@
 		{% render '@partials-head' %}
 	</head>
 	<body class="theme-{{ page.theme|default('default') }}{% if page.classes %} {{ page.classes }}{% endif %} {{ _target.baseHandle }}" data-bs-theme="{{ page.mode }}">
-
+		{% render "@component-color-mode" %}
 		{% block content %}
 			<div id="content" class="content">
 				{{ yield }}

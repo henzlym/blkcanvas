@@ -2,6 +2,6 @@ module.exports = {
 	label: 'Article Body',
 	status: 'prototype',
 	context: {
-		components: ['wysiwyg']
+		content: 'component-wysiwyg--formatting'
 	}
 };

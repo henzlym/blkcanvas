@@ -3,6 +3,7 @@ module.exports = {
 	status: 'prototype',
 	context: {
 		classes: '',
+		navbar: {},
 		page: {
 			classes: ''
 		}

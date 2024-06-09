@@ -23,7 +23,7 @@ module.exports = {
 				articles_list: {
 					title: '',
 					row_classes: 'row-cols-md-2 row-gap-3',
-					component_name: 'component-card--image-description'
+					component_name: 'component-card--image'
 				}
 			}
 		}

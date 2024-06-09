@@ -11,46 +11,49 @@
 		}
 	%}
 #}
-<div class="card list-item {{ classes }}">
+<div class="list-item row g-3 {{ classes }}">
 
-	<div class="card-thumbnail col-sm-4">
+	<div class="list-item-thumbnail col-sm-4">
 		{% if image %}
 			{% render "@content-picture" with {
-				classes:'aspect-ratio-widescreen w-100',
+				classes:'aspect-ratio-widescreen aspect-ratio-sm-square aspect-ratio-md-fullscreen w-100',
 				src:'placeholder'
 			}  %}
 		{% endif %}
 	</div>
 
-	<div class="card-body col-sm-8">
+	<div class="list-item-body col-sm-8">
 
-		{% if categories %}
-			{% render '@partials-link' with {
-				classes:'card-tag',
-				icon: '',
-				title: categories,
-				rel:'tag'
-			} %}
-		{% endif %}
+		<p class="list-item-categories">
+			{% if categories %}
+				{% render '@partials-link' with {
+					classes:'list-item-tag text-uppercase',
+					icon: '',
+					title: categories,
+					rel:'tag'
+				} %}
+			{% endif %}
+		</p>
 
-		<h4 class="card-title">
+		<h3 class="list-item-title">
 			{% render '@partials-link' with {
 				classes:'',
 				icon: '',
 				title: title,
 				rel:''
 			} %}
-		</h4>
+		</h3>
+
+		{% if meta.date %}
+			<div class="list-item-date text-body-tertiary">
+				{% render "@partials-date" with meta.date %}
+			</div>
+		{% endif %}
 
 		{% if description %}
-			<p class="card-text">{{ description }}</p>
+			<p class="list-item-text">{{ description }}</p>
 		{% endif %}
 
-		{% if meta.author %}
-			<span class="card-author">
-				{% render "@partials-author" with meta.author %}
-			</span>
-		{% endif %}
 
 	</div>
 </div>

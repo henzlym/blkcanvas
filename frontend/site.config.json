@@ -1,7 +1,7 @@
 {
-	"title":"Company, Inc",
+	"title": "Company, Inc",
 	"assets": {
-		"scripts": ["/js/scripts.js", "/js/vendor.js"],
+		"scripts": ["/js/scripts.js", "/js/vendor.js", "/js/color-mode.js"],
 		"styles": ["/css/site.css"]
 	},
 	"menus": {
@@ -10,8 +10,8 @@
 				"label": "Home",
 				"url": "#",
 				"icon": "",
-				"active":true,
-				"link_class":"active"
+				"active": true,
+				"link_class": "active"
 			},
 			{
 				"label": "About Us",
@@ -203,8 +203,30 @@
 	},
 	"page": {
 		"classes": [],
-		"tags":["nature", "food", "travel", "technology", "fitness", "music", "art", "fashion", "books", "sports"],
-		"categories":["sports", "politics", "entertainment", "technology", "health", "business", "science", "travel", "food", "fashion"],
+		"tags": [
+			"nature",
+			"food",
+			"travel",
+			"technology",
+			"fitness",
+			"music",
+			"art",
+			"fashion",
+			"books",
+			"sports"
+		],
+		"categories": [
+			"sports",
+			"politics",
+			"entertainment",
+			"technology",
+			"health",
+			"business",
+			"science",
+			"travel",
+			"food",
+			"fashion"
+		],
 		"theme": "default",
 		"related_posts": [
 			{

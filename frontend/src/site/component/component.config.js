@@ -3,7 +3,7 @@ module.exports = {
 		page: {
 			theme: 'green',
 			classes: 'portfolio--magazine',
-			mode: 'dark'
+			mode: ''
 		}
 	},
 	prefix: 'component',

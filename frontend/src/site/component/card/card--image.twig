@@ -1,4 +1,4 @@
-{# 
+{#
 	{% include "@component-card--feature" with {
 			"link": {
 				"aria_label": "",
@@ -8,21 +8,21 @@
 			},
 			"title": "Card title",
 			"text": "Some quick example text to build on the card title and make up the bulk of the card's content."
-		} 
+		}
 	%}
 #}
 <div class="card card-image {{ classes }}">
 
-	<div class="card-header fs-meta">
+	<p class="card-categories">
 		{% if item.categories %}
 			{% render '@partials-link' with {
-				classes:'card-tag',
+				classes:'text-uppercase',
 				icon: '',
 				title: item.categories,
 				rel:'tag'
 			} %}
 		{% endif %}
-	</div>
+	</p>
 
 	{% if item.image %}
 		{% render "@content-picture" with item.image  %}
@@ -30,12 +30,23 @@
 
 	<div class="card-body">
 
-		<h5 class="card-title">{{ item.title }}</h5>
+		<h3 class="card-title">
+			{% render '@partials-link' with {
+				classes:'',
+				icon: '',
+				title: title,
+				rel:''
+			} %}
+		</h3>
 
 		{% if item.meta.author %}
-			<span class="card-author">
+			<div class="card-author text-body-tertiary">
 				{% render "@partials-author" with item.meta.author %}
-			</span>
+			</div>
+		{% endif %}
+
+		{% if item.description %}
+			<p class="card-text">{{ item.description }}</p>
 		{% endif %}
 
 	</div>

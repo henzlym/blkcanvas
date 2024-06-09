@@ -2,11 +2,10 @@
 @import url('https://cdn-uicons.flaticon.com/2.3.0/uicons-brands/css/uicons-brands.css');
 @import 'base/bootstrap/bootstrap';
 @import 'base/layouts';
+@import 'base/main';
 @import 'base/wordpress';
-@import 'components/**/*';
 @import 'icons/**/*';
 @import 'templates/**/*';
-
 .container-overlay {
 	position: fixed;
 	inset: 0;

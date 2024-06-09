@@ -4,6 +4,8 @@ require_once __DIR__ . '/src/StarterSite.php';
 require_once __DIR__ . '/inc/templates.php';
 require_once __DIR__ . '/inc/widgets.php';
 
+remove_filter('the_content', 'wpautop');
+
 /**
  * Filter the CSS class for a nav menu based on a condition.
  *

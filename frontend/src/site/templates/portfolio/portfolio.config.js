@@ -5,32 +5,7 @@ module.exports = {
 	label: 'Portfolio',
 	status: 'prototype',
 	context: {
-		page: {
-			theme: 'green',
-			classes: 'portfolio--magazine',
-			mode: 'dark',
-			header: {
-				classes: 'py-sm-3 py-md-5',
-				navbar: {
-					classes: 'container',
-					site_brand: {
-						img: false,
-						url: '#',
-						title: 'Henzly Meghie'
-					},
-					navigation: {
-						classes: 'ms-auto',
-						id: 'site-navigation',
-						item_class: '',
-						js_class: '',
-						link_class: '',
-						nav_classes: 'text-uppercase',
-						title: ''
-					},
-					navbar_collapse_classes: 'justify-content-end'
-				}
-			}
-		},
+		page: {},
 		author: {
 			name: 'John Doe',
 			prefix: 'By',

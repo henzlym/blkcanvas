@@ -1,9 +1,3 @@
 <div class="page-content {{ classes }}">
-	{% if components %}
-		{% for component in components %}
-			<div class="page-component-wrapper">
-				{% render '@component-' ~ component %}
-			</div>
-		{% endfor %}
-	{% endif %}
+	{% render '@' ~ content %}
 </div>
