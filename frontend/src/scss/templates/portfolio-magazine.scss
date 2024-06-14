@@ -59,12 +59,24 @@ h5,
 h6 {
 	a {
 		color: inherit;
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 }
 
 h1 {
 	span {
 		color: var(--#{$prefix}emphasis-color);
+	}
+}
+
+time {
+	a {
+		color: inherit;
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 }
 

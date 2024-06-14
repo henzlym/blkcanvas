@@ -2,9 +2,12 @@
 	<h2 class="list-group-title {{ title_classes }}">{{ title }}</h2>
 {% endif %}
 <ul class="list-group {{ classes }}">
-	{% for item in items %}
-		<li class="list-group-item {{ item_classes }}">
-			{% render "@component-list-item" with item %}
+	<!-- wp:the_loop -->
+	<!-- wp:get_template_part(@component-list-item) -->
+		{% for item in items %}
+			<li class="list-group-item {{ item_classes }}"> {% render "@component-list-item--image" with item %}
 		</li>
 	{% endfor %}
+	<!-- /wp:get_template_part -->
+	<!-- /wp:the_loop -->
 </ul>

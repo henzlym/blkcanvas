@@ -1,6 +1,9 @@
-<div class="page-header">
+<div
+	class="page-header">
 
-	<p class="page-categories">
+	<!-- wp:the_category -->
+	<ul class="page-categories">
+
 		{% render '@partials-link' with {
 			aria_label: '',
 			classes:'',
@@ -13,9 +16,15 @@
 			wrapper_classes:'',
 			rel:'category'
 		} %}
-	</p>
 
-	<h1 class="display-3 fw-bolder">{{ title }}</h1>
+	</ul>
+	<!-- /wp:the_category -->
+	<h1
+		class="display-3 fw-bolder">
+		<!-- wp:get_the_title -->
+		{{ title }}
+		<!-- /wp:get_the_title -->
+	</h1>
 
 	<p class="lead">{{ excerpt }}</p>
 

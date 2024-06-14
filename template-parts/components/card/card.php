@@ -1,22 +1,23 @@
-<div class="card">
+<div <?php post_class('card'); ?>>
 
-	<div class="card-header fs-meta">
-		<?php the_category(' '); ?>
-	</div>
+	<?php the_category(' '); ?>
+
+	<?php the_post_thumbnail('large', array('class' => 'img-fluid aspect-ratio-widescreen w-100 object-fit-cover')); ?>
 
 	<div class="card-body">
 
-		<h4 class="card-title"><a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></h4>
+		<?php
+		the_title(
+			sprintf('<h2 class="card-title h4"><a href="%s" rel="bookmark">', esc_attr(esc_url(get_permalink()))),
+			'</a></h2>'
+		);
+		?>
 
-		<p class="card-text mb-2"><?php echo get_the_excerpt(); ?></p>
+		<div class="card-meta d-flex gap-2 text-body-tertiary small mb-3">
+			<?php get_template_part('template-parts/partials/article/meta/meta'); ?>
+		</div>
 
-		<span class="card-author">
-			<div class="author">
-				<?php the_author_posts_link(); ?>
-			</div>
-		</span>
-
-
+		<?php the_excerpt(); ?>
 
 	</div>
 </div>

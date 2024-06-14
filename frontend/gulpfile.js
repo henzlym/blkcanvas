@@ -1,7 +1,7 @@
 'use strict';
 
 require('module-alias/register');
-
+const path = require('path');
 /**
  * Gulp Dependecies
  */
@@ -20,7 +20,8 @@ const fractal = require('./fractal.config');
 const fractalLogger = fractal.cli.console;
 const tap = require('gulp-tap');
 const fs = require('fs');
-
+const replace = require('gulp-replace');
+const ignore = require('gulp-ignore');
 // const bootstrapIcons = require('bootstrap-icons');
 
 const isProduction = false;
@@ -84,6 +85,14 @@ function cleanFiles() {
 		.pipe(clean());
 }
 
+function cleanPHPFiles() {
+	return gulp
+		.src([`${srcPath}/php/**/*`], {
+			read: false
+		})
+		.pipe(clean());
+}
+
 function watchFiles() {
 	gulp.watch(
 		[`${srcPath}/site/**/*.scss`, `${srcPath}/scss/**/*.scss`],
@@ -138,6 +147,63 @@ function purgeComponentStyles() {
 					.on('end', () => resolve());
 			});
 		})
+	);
+}
+
+function twigToPHP(params) {
+	return (
+		gulp
+			.src([
+				`${srcPath}/build/components/render/component-card-*`,
+				`${srcPath}/build/components/render/component-grid*`,
+				`${srcPath}/build/components/render/component-list*`,
+				`${srcPath}/build/components/render/partials-article-*`
+			])
+			.pipe(
+				replace(
+					/<!-- wp:the_loop -->([\s\S]*?)<!-- \/wp:the_loop -->/g,
+					function (match, p1) {
+						return `
+<?php if (have_posts()) : ?>
+    <?php while (have_posts()) : the_post(); ?>
+        ${p1}
+    <?php endwhile; ?>
+    <?php the_posts_pagination(); ?>
+<?php else : ?>
+    <h2>No results were found</h2>
+<?php endif; ?>`;
+					}
+				)
+			)
+			.pipe(
+				replace(
+					/<!-- wp:([a-zA-Z0-9_]+) -->[\s\S]*?<!-- \/wp:\1 -->|<!-- wp:([a-zA-Z0-9_]+) -->/g,
+					function (match, p1, p2) {
+						const functionName = p1 || p2;
+						if (functionName.startsWith('get_')) {
+							return `<?php echo ${functionName}(); ?>`;
+						} else {
+							return `<?php ${functionName}(); ?>`;
+						}
+					}
+				)
+			)
+			.pipe(
+				replace(
+					/<!-- wp:([a-zA-Z0-9_]+)\(([^)]*)\) -->[\s\S]*?<!-- \/wp:\1 -->/g,
+					function (match, p1, p2) {
+						return `<?php ${p1}('${p2 ? p2 : ''}'); ?>`;
+					}
+				)
+			)
+			// Remove Twig comments
+			.pipe(replace(/\{#([\s\S]*?)#\}/g, ''))
+			.pipe(
+				rename((filePath) => {
+					filePath.extname = '.php';
+				})
+			)
+			.pipe(gulp.dest('php/template-parts'))
 	);
 }
 
@@ -211,3 +277,4 @@ const development = gulp.series(buildFiles, fractalStart, watchFiles);
 exports.build = build;
 exports.default = development;
 exports.components = gulp.series(buildComponentStyles, purgeComponentStyles);
+exports.twigToPHP = gulp.series(fractalBuild, cleanPHPFiles, twigToPHP);

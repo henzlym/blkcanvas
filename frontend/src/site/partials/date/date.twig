@@ -1,8 +1,11 @@
-<address class="date">
+<span
+	class="date">
+	<!-- wp:the_date -->
 	{% if modified %}
-		<span class="updated modified">
-			{{ modified|date('M j Y') }}</span>
+		<time class="updated modified">
+			{{ modified|date('M j Y') }}</time>
 	{% endif %}
-	<span class="published">
-		{{ date|date('M j Y') }}</span>
-</address>
+	<time class="published">
+		{{ date|date('M j Y') }}</time>
+	<!-- /wp:the_date -->
+</span>

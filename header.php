@@ -18,9 +18,9 @@
 </head>
 
 <body <?php body_class('theme-green portfolio--magazine'); ?> data-bs-theme="dark">
-	<header class="py-sm-3 py-md-5 container-lg">
+	<header class="py-sm-3 py-md-5 px-0 container-lg">
 		<nav class="navbar navbar-expand-lg">
-			<a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
+			<a class="navbar-brand font-navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
 				<?php echo bloginfo('name'); ?>
 			</a>
 
@@ -36,7 +36,7 @@
 							'container_class'      => 'nav-container ms-auto',
 							'menu_class'           => 'menu nav',
 							'fallback_cb'          => 'wp_page_menu',
-							'link_class'           => 'nav-link text-uppercase',
+							'link_class'           => 'nav-link',
 							'theme_location'       => 'primary',
 						)
 					);

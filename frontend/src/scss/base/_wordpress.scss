@@ -63,8 +63,8 @@ a img.aligncenter {
 }
 
 .wp-caption {
-	background: #fff;
-	border: 1px solid #f0f0f0;
+	background: transparent;
+	border: none;
 	max-width: 96%; /* Image does not overflow the content area */
 	padding: 5px 3px 10px;
 	text-align: center;
@@ -91,11 +91,11 @@ a img.aligncenter {
 	width: auto;
 }
 
-.wp-caption p.wp-caption-text {
-	font-size: 11px;
-	line-height: 17px;
-	margin: 0;
-	padding: 0 4px 5px;
+.wp-caption .wp-caption-text {
+	margin-top: $blockquote-margin-y;
+	margin-bottom: $blockquote-margin-y;
+	@include font-size($blockquote-footer-font-size);
+	color: $blockquote-footer-color;
 }
 
 /* Text meant only for screen readers. */
@@ -150,5 +150,13 @@ a img.aligncenter {
 		&::before {
 			content: '\2014\00A0'; // em dash, nbsp
 		}
+	}
+}
+
+// Post Categories
+ul.post-categories {
+	padding-inline-start: 0;
+	li {
+		list-style: none;
 	}
 }

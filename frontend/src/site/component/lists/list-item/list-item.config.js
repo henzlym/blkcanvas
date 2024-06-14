@@ -5,7 +5,7 @@ const user = users.slice(0, 1)[0];
 
 module.exports = {
 	context: {
-		classes: 'flex-column flex-sm-row',
+		classes: '',
 		image: {
 			classes: 'w-thumbnail aspect-ratio-widescreen',
 			size: 'large'

@@ -4172,6 +4172,7 @@ textarea.form-control-lg {
 .nav {
   --bs-nav-link-padding-x: 1rem;
   --bs-nav-link-padding-y: 0.5rem;
+  --bs-nav-link-font-size: 0.875rem;
   --bs-nav-link-font-weight: ;
   --bs-nav-link-color: var(--bs-link-color);
   --bs-nav-link-hover-color: var(--bs-link-hover-color);
@@ -4358,6 +4359,7 @@ textarea.form-control-lg {
 .navbar-nav {
   --bs-nav-link-padding-x: 0;
   --bs-nav-link-padding-y: 0.5rem;
+  --bs-nav-link-font-size: 0.875rem;
   --bs-nav-link-font-weight: ;
   --bs-nav-link-color: var(--bs-navbar-color);
   --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
@@ -13067,19 +13069,6 @@ textarea.form-control-lg {
   --bs-hheader-nav: 0.75rem;
 }
 
-:where(.article--two-column) {
-  display: grid;
-}
-@media (min-width: 992px) {
-  :where(.article--two-column) {
-    grid-template-areas: "article aside";
-    grid-template-columns: auto auto;
-  }
-  :where(.article--two-column) > aside {
-    grid-area: aside;
-  }
-}
-
 pre {
   white-space: pre-wrap;
 }
@@ -13149,8 +13138,8 @@ a img.aligncenter {
 }
 
 .wp-caption {
-  background: #fff;
-  border: 1px solid #f0f0f0;
+  background: transparent;
+  border: none;
   max-width: 96%; /* Image does not overflow the content area */
   padding: 5px 3px 10px;
   text-align: center;
@@ -13177,11 +13166,11 @@ a img.aligncenter {
   width: auto;
 }
 
-.wp-caption p.wp-caption-text {
-  font-size: 11px;
-  line-height: 17px;
-  margin: 0;
-  padding: 0 4px 5px;
+.wp-caption .wp-caption-text {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.875em;
+  color: #6c757d;
 }
 
 /* Text meant only for screen readers. */
@@ -13233,6 +13222,13 @@ a img.aligncenter {
 }
 .typography cite::before {
   content: "— ";
+}
+
+ul.post-categories {
+  padding-inline-start: 0;
+}
+ul.post-categories li {
+  list-style: none;
 }
 
 body.theme-blue {
@@ -13292,9 +13288,29 @@ h6 a,
 .h6 a {
   color: inherit;
 }
+h1 a:hover, .h1 a:hover,
+h2 a:hover,
+.h2 a:hover,
+h3 a:hover,
+.h3 a:hover,
+h4 a:hover,
+.h4 a:hover,
+h5 a:hover,
+.h5 a:hover,
+h6 a:hover,
+.h6 a:hover {
+  text-decoration: underline;
+}
 
 h1 span, .h1 span {
   color: var(--bs-emphasis-color);
+}
+
+time a {
+  color: inherit;
+}
+time a:hover {
+  text-decoration: underline;
 }
 
 @media (min-width: 576px) {

@@ -9,24 +9,24 @@
 #}
 
 
-<div class="grid-container {{ classes }}">
+<div class="grid-container">
 	{% if title %}
 		<div class="row">
-			<div class="col-12">
+			<div class="col">
 				<h2 class="grid-container--title">{{ title }}</h2>
 			</div>
 		</div>
 	{% endif %}
-	<div class="row row-cols-1 {{ row_classes }}">
+	<div class="row row-cols-2">
+		<!-- wp:the_loop -->
+		<!-- wp:get_template_part(@component-card) -->
+			{% for item in items %}
 
-		{% for item in items %}
+		{% render "@" ~ component_name with item %}
 
-			<div class="col">
-				{% render "@" ~ component_name with item %}
-			</div>
-
-		{% endfor %}
-
+	{% endfor %}
+		<!-- /wp:get_template_part -->
+		<!-- /wp:the_loop -->
 	</div>
 
 </div>

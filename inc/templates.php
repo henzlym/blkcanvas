@@ -3,7 +3,6 @@
 
 function _theme_single_post_template($single_template)
 {
-	global $post;
 
 	$single_template = get_template_directory() . '/template-parts/templates/single/single--two-column.php';
 

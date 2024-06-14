@@ -11,7 +11,7 @@ const dropdown = {
 		{
 			name: 'multilevel',
 			context: {
-				classes: 'dropdown--coalition',
+				classes: '',
 				title: 'About Us',
 				url: '/about',
 				icon: '',
@@ -34,7 +34,24 @@ const dropdown = {
 							{
 								label: 'Goals',
 								url: '#',
-								icon: ''
+								icon: '',
+								children: [
+									{
+										label: 'Goals',
+										url: '#',
+										icon: ''
+									},
+									{
+										label: 'Plans',
+										url: '#',
+										icon: ''
+									},
+									{
+										label: 'Focus',
+										url: '#',
+										icon: ''
+									}
+								]
 							},
 							{
 								label: 'Plans',

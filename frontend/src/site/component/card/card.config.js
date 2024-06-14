@@ -6,6 +6,12 @@ module.exports = {
 	context: {
 		theme: themeConfig.card,
 		classes: '',
+		card_classes: {
+			author: '',
+			body: '',
+			categories: '',
+			text: ''
+		},
 		item: {
 			image: {
 				classes: 'aspect-ratio-widescreen w-100'

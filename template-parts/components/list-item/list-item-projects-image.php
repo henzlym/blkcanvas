@@ -1,10 +1,10 @@
 <div <?php post_class('list-item row g-3'); ?>>
 
-	<?php the_post_thumbnail('medium', array('class' => 'img-fluid aspect-ratio-widescreen aspect-ratio-sm-square aspect-ratio-md-fullscreen w-100')); ?>
+	<?php the_post_thumbnail('medium', array('class' => 'img-fluid aspect-ratio-widescreen object-fit-cover w-100')); ?>
 
 	<div class="list-item-body <?php echo has_post_thumbnail() ? 'col-sm-7' : ''; ?>">
 
-		<?php the_category(); ?>
+		<?php the_category(' '); ?>
 
 		<h3 class="list-item-title"><a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
 

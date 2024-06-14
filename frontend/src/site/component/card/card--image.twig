@@ -11,43 +11,62 @@
 		}
 	%}
 #}
-<div class="card card-image {{ classes }}">
+<div class="card card-image">
 
-	<p class="card-categories">
-		{% if item.categories %}
+	<div
+		class="card-thumbnail">
+		<!-- wp:get_the_post_thumbnail -->
+		{% render "@content-picture" with item.image %}
+		<!-- /wp:get_the_post_thumbnail -->
+	</div>
+
+	<div class="card-body">
+
+		<div
+			class="card-categories">
+			<!-- wp:the_category -->
 			{% render '@partials-link' with {
 				classes:'text-uppercase',
 				icon: '',
 				title: item.categories,
-				rel:'tag'
 			} %}
-		{% endif %}
-	</p>
+			<!-- /wp:the_category -->
+		</div>
 
-	{% if item.image %}
-		{% render "@content-picture" with item.image  %}
-	{% endif %}
-
-	<div class="card-body">
-
-		<h3 class="card-title">
+		<h3
+			class="card-title h2">
+			<!-- wp:get_the_title -->
 			{% render '@partials-link' with {
 				classes:'',
 				icon: '',
-				title: title,
-				rel:''
+				title: item.title,
 			} %}
+			<!-- /wp:get_the_title -->
 		</h3>
 
-		{% if item.meta.author %}
-			<div class="card-author text-body-tertiary">
-				{% render "@partials-author" with item.meta.author %}
-			</div>
-		{% endif %}
+		<p
+			class="card-text mb-2">
+			<!-- wp:get_the_excerpt -->
+			{{ item.description }}
+			<!-- /wp:get_the_excerpt -->
+		</p>
 
-		{% if item.description %}
-			<p class="card-text">{{ item.description }}</p>
-		{% endif %}
+		<div class="card-meta d-flex gap-2 small">
+
+			<div
+				class="card-author">
+				<!-- wp:the_date -->
+				{% render "@partials-author" with item.meta.author %}
+				<!-- /wp:the_date -->
+			</div>
+			<div
+				class="card-date">
+				<!-- wp:the_date -->
+				{% render "@partials-date" with item.meta.date %}
+				<!-- /wp:the_date -->
+			</div>
+
+		</div>
 
 	</div>
 </div>

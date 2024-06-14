@@ -14,7 +14,6 @@
 	<section class="container-lg my-5">
 		<h1 class="text-uppercase mb-5"><?php echo single_cat_title('', false); ?></h1>
 		<?php get_template_part('template-parts/components/list/list', '', array(
-			'list-item-type' => 'image',
 			'title' => false
 		)); ?>
 	</section>

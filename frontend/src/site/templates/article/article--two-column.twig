@@ -1,20 +1,22 @@
 {% render "@layouts-header" with page.header %}
 
-<main class="container-lg article--two-column column-gap-5 py-5">
-	<article>
-		{% render "@partials-article-header" with {
-			title: title,
-			excerpt:
-				excerpt,
-			author: author,
-			date: date,
-			categories: categories
-		} %}
+<main class="container-lg py-5">
+	<div class="row">
+		<article class="col-md-9">
+			{% render "@partials-article-header" with {
+				title: title,
+				excerpt:
+					excerpt,
+				author: author,
+				date: date,
+				categories: categories
+			} %}
 
-		{% render "@partials-article-thumbnail" with featured_media %}
-		{% render "@partials-article-body" %}
-	</article>
-	{% render "@layouts-sidebar" %}
+			{% render "@partials-article-thumbnail" with featured_media %}
+			{% render "@partials-article-body" %}
+		</article>
+		{% render "@layouts-sidebar" %}
+	</div>
 </main>
 
 {% render "@layouts-footer" with page.footer %}

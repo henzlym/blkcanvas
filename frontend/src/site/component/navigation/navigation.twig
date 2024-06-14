@@ -1,4 +1,4 @@
-{# 
+{#
 	{% render "@component-navigation" with {
 		classes:'',
 		items:items
@@ -21,6 +21,7 @@
 
 				{% if item.children %}
 					{% render "@component-dropdown" with {
+						classes:item_class,
 						title: item.label ?: item,
 						url: item.url ?: '#',
 						icon: item.icon,

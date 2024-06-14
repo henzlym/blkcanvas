@@ -1,4 +1,6 @@
-<p class="author">
+<span
+	class="author">
+	<!-- wp:the_author_posts_link -->
 	{% if prefix and avatar == false %}
 		<span class="prefix">
 			{{ prefix }}
@@ -22,4 +24,5 @@
 	{% else %}
 		<span>{{ name }}</span>
 	{% endif %}
-</p>
+	<!-- /wp:the_author_posts_link -->
+</span>

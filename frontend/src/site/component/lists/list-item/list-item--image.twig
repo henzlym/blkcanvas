@@ -11,9 +11,19 @@
 		}
 	%}
 #}
-<div class="list-item row g-3 {{ classes }}">
+<div class="list-item row g-3">
 
-	<div class="list-item-body">
+	<div
+		class="list-item-thumbnail col-sm-4">
+		<!-- wp:get_the_post_thumbnail -->
+		{% render "@content-picture" with {
+				classes:'aspect-ratio-widescreen aspect-ratio-sm-square aspect-ratio-md-fullscreen w-100',
+				src:'placeholder'
+			}  %}
+		<!-- /wp:get_the_post_thumbnail -->
+	</div>
+
+	<div class="list-item-body col-sm-8">
 
 		<div
 			class="list-item-categories">
@@ -39,7 +49,7 @@
 			<!-- /wp:get_the_title -->
 		</h3>
 
-		<div class="list-item-meta small text-body-tertiary d-flex gap-3">
+		<div class="list-item-meta small text-body-tertiary d-flex gap-3 mb-3">
 			<div class="list-item-author">
 				{% render "@partials-author" with meta.author %}
 			</div>
