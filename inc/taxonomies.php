@@ -43,7 +43,7 @@ function _theme_get_post_primary_category($post_id, $taxonomy = 'category', $cat
 	return $primary_term;
 }
 
-function _theme_the_category_list(array $categories, int|false $post_id): array
+function _theme_the_category_list(array $categories, int $post_id): array
 {
 
 	if (empty($categories)) {
