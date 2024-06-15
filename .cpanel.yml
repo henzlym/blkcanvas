@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/henzly5/public_html/wp-content/themes/blkcanvas
+    - /bin/cp -r * $DEPLOYPATH
