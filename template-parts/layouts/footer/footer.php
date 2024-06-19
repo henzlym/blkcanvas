@@ -1,4 +1,4 @@
-<footer class="container-lg py-3">
+<footer class="container-lg py-3 ">
 
 	<nav class="navbar navbar-expand-lg  ">
 		<a class="navbar-brand-footer" href="#">
