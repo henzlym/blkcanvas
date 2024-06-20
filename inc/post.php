@@ -94,9 +94,14 @@ function _theme_list_item_the_excerpt($the_excerpt)
 {
 	$read_more = '<a class="text-uppercase small" href="' . get_the_permalink() . '" rel="nofollow">View Website</a>';
 	$the_excerpt = '<p class="post-text">' . $the_excerpt . '</p>';
-	return $the_excerpt . $read_more;
+
+	if (!is_single()) {
+		$the_excerpt .= $read_more;
+	}
+
+	return $the_excerpt;
 }
-add_filter('get_the_excerpt', '_theme_list_item_the_excerpt', 10);
+
 
 function _theme_list_item_the_category(string $thelist, string $separator, string $parents): string
 {
@@ -112,5 +117,6 @@ add_filter('the_category', '_theme_list_item_the_category', 10, 3);
 function _theme_get_template_part($slug, $name, $args)
 {
 	do_action('qm/debug', $slug);
+	add_filter('get_the_excerpt', '_theme_list_item_the_excerpt', 10);
 }
 add_action('get_template_part_template-parts/components/list/list', '_theme_get_template_part', 10, 3);
