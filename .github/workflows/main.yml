@@ -11,6 +11,8 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ftp.henzlymeghie.com:21/public_html/wp-content/themes/blkcanvas
+        server: ftp.henzlymeghie.com
+        server-dir: /public_html/wp-content/themes/blkcanvas/
         username: henzlym@henzlymeghie.com
         password: ${{ secrets.FTP_PASSWORD }}
+        port: 21
