@@ -1,6 +1,6 @@
 <div <?php post_class('list-item row align-items-start g-3'); ?>>
 
-	<?php the_post_thumbnail('medium', array('class' => 'col-sm-5 img-fluid aspect-ratio-widescreen object-fit-cover w-100')); ?>
+	<?php the_post_thumbnail('medium', array('class' => 'col-sm-5 img-fluid aspect-ratio-widescreen object-fit-cover')); ?>
 
 	<div class="post-body <?php echo (has_post_thumbnail()) ? 'col-sm-7' : ''; ?>">
 
