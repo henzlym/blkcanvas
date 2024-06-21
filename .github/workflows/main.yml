@@ -1,18 +1,23 @@
-on: push
-name: 🚀 Deploy website on push
-jobs:
-  web-deploy:
-    name: 🎉 Deploy
-    runs-on: ubuntu-latest
-    steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v4
+name: Deploy to Server
 
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4.1.7
+
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.9.0
       with:
-        server: ftp.henzlymeghie.com
-        server-dir: /public_html/wp-content/themes/blkcanvas/
-        username: henzlym@henzlymeghie.com
-        password: ${{ secrets.FTP_PASSWORD }}
-        port: 21
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy to Server
+      run: |
+        ssh ${{ secrets.SSH_LOGIN }} "cd ${{ secrets.PROJECT_DIR }} && git pull origin master"
