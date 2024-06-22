@@ -34,7 +34,7 @@
 						array(
 							'container'            => 'nav',
 							'container_class'      => 'nav-container ms-auto',
-							'menu_class'           => 'menu nav',
+							'menu_class'           => 'menu nav text-uppercase',
 							'fallback_cb'          => 'wp_page_menu',
 							'link_class'           => 'nav-link',
 							'theme_location'       => 'primary',
