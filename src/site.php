@@ -1,11 +1,9 @@
 <?php
 
-use Timber\Site;
-
 /**
- * Class StarterSite
+ * Class Site_Init
  */
-class StarterSite
+class Site_Init
 {
 
 	public $site_config = null;
@@ -16,8 +14,6 @@ class StarterSite
 
 		add_action('after_setup_theme', array($this, 'theme_supports'));
 		add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
-		add_action('init', array($this, 'register_post_types'));
-		add_action('init', array($this, 'register_taxonomies'));
 	}
 
 	/**
@@ -25,24 +21,11 @@ class StarterSite
 	 */
 	public function enqueue_styles()
 	{
-		wp_enqueue_style('site-main', get_stylesheet_directory_uri() . '/frontend/src/public/css/site.css', array(), '1.0.0');
+		// wp_enqueue_style('site-main', get_stylesheet_directory_uri() . '/frontend/src/public/css/site.css', array(), '1.0.0');
 		// wp_enqueue_script('blkcanvas-vendor', get_template_directory_uri() . '/frontend/src/public/js/vendor.js', [], '1.0.0', true);
-		wp_enqueue_script('blkcanvas-scripts', get_template_directory_uri() . '/frontend/src/public/js/scripts.js', [], '1.0.0', true);
+		// wp_enqueue_script('blkcanvas-scripts', get_template_directory_uri() . '/frontend/src/public/js/scripts.js', [], '1.0.0', true);
 	}
 
-	/**
-	 * This is where you can register custom post types.
-	 */
-	public function register_post_types()
-	{
-	}
-
-	/**
-	 * This is where you can register custom taxonomies.
-	 */
-	public function register_taxonomies()
-	{
-	}
 
 	public function theme_get_image_sizes(): array
 	{
@@ -155,7 +138,23 @@ class StarterSite
 				$this->site_config['menus']
 			);
 		}
+
+		// Add theme support for selective refresh for widgets.
+		// add_theme_support('customize-selective-refresh-widgets');
+
+		// add_theme_support('wp-block-styles');
+
+		// add_theme_support('align-wide');
+
+		// add_theme_support('custom-line-height');
+
+		// add_theme_support('responsive-embeds');
+
+		// add_theme_support('custom-spacing');
+
+		// add_editor_style( 'editor-style.css' );
+
 	}
 }
 
-new StarterSite;
+new Site_Init;
