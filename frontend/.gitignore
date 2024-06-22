@@ -1,9 +1,0 @@
-node_modules
-/bootstrap
-build
-dist
-.site*
-.scss*
-*.zip
-
-src/public/images/portfolio/
