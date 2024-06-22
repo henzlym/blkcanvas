@@ -1,6 +1,7 @@
 <?php
-$query_args = isset($args['query']) && !empty($args['query']) ? $args['query'] : [];
-$query_args = wp_parse_args($query_args, ['post_type' => 'post']);
+global $wp_query;
+$query_args = isset($args['query']) && !empty($args['query']) ? $args['query'] : $wp_query->query_vars;
+$query_args = wp_parse_args($query_args, []);
 $the_query = new WP_Query($query_args);
 ?>
 

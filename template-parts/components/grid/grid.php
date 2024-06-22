@@ -1,4 +1,4 @@
-<div class="grid-container ">
+<div class="grid-container">
 
 	<?php if (isset($args['title'])) : ?>
 		<div class="row">
