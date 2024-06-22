@@ -13,15 +13,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4.1.7
 
-    - name: Setup SSH
-      uses: webfactory/ssh-agent@v0.9.0
+    - name: Deploying Script
+      uses: appleboy/ssh-action@v1.0.3
       with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-    - name: Add server to known hosts
-      run: |
-        ssh-keyscan -H henzlymeghie.com >> ~/.ssh/known_hosts
-
-    - name: Deploy to Server
-      run: |
-        ssh ${{ secrets.SSH_LOGIN }} "cd ${{ secrets.PROJECT_DIR }} && git pull origin master"
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        password: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          cd ${{ secrets.PROJECT_DIR }} && git pull origin master
