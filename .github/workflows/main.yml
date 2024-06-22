@@ -18,6 +18,10 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+    - name: Add server to known hosts
+      run: |
+        ssh-keyscan -H henzlymeghie.com >> ~/.ssh/known_hosts
+
     - name: Deploy to Server
       run: |
         ssh ${{ secrets.SSH_LOGIN }} "cd ${{ secrets.PROJECT_DIR }} && git pull origin master"
