@@ -13,3 +13,15 @@ Text Domain: blkcanvas
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+[data-bs-theme=light], [data-bs-theme=dark]{
+	--bs-link-color: var(--wp--preset--color--primary);
+	--bs-link-hover-color:var(--wp--preset--color--primary);
+	--bs-pagination-active-bg:var(--wp--preset--color--primary);
+}
+
+[data-bs-theme=light] .pagination, [data-bs-theme=dark] .pagination{
+	--bs-link-color: var(--wp--preset--color--primary);
+	--bs-link-hover-color:var(--wp--preset--color--primary);
+	--bs-pagination-active-bg:var(--wp--preset--color--primary);
+	--bs-pagination-active-border-color:var(--wp--preset--color--primary);
+}

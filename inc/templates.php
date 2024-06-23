@@ -4,7 +4,7 @@
 function _theme_single_post_template($single_template)
 {
 
-	$single_template = get_template_directory() . '/template-parts/templates/single/single--two-column.php';
+	$single_template = get_template_directory() . '/template-parts/single--two-column.php';
 
 	return $single_template;
 }
