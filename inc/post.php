@@ -9,7 +9,7 @@ function _theme_post_thumbnail_html($html)
 	if (is_singular() && !is_front_page() && in_the_loop()) {
 
 		$html = '
-		<figure class="figure">
+		<figure class="figure d-block">
 			<div class="figure-img">
 				' . $html . '
 			</div>
