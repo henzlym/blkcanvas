@@ -45,17 +45,35 @@ function buildIcons(params) {
 		.pipe(gulp.dest(paths.icons.dest));
 }
 function buildStyles() {
-	return gulp
-		.src(paths.css.src)
-		.pipe(sassGlob())
-		.pipe(
-			sass({
-				outputStyle: isProduction ? "compressed" : "expanded",
-				includePaths: ["node_modules"],
-			}).on("error", sass.logError)
-		)
-		.pipe(cleanCSS())
-		.pipe(gulp.dest(paths.css.dest));
+	return (
+		gulp
+			.src(paths.css.src)
+			.pipe(sassGlob())
+			.pipe(
+				sass({
+					outputStyle: isProduction ? "compressed" : "expanded",
+					includePaths: ["node_modules"],
+				}).on("error", sass.logError)
+			)
+			// .pipe(cleanCSS())
+			.pipe(gulp.dest(paths.css.dest))
+	);
+}
+
+function buildComponentStyles() {
+	return (
+		gulp
+			.src(paths.css.src)
+			.pipe(sassGlob())
+			.pipe(
+				sass({
+					outputStyle: isProduction ? "compressed" : "expanded",
+					includePaths: ["node_modules"],
+				}).on("error", sass.logError)
+			)
+			// .pipe(cleanCSS())
+			.pipe(gulp.dest(paths.css.dest))
+	);
 }
 
 function buildScripts() {
@@ -94,57 +112,6 @@ function watchFiles() {
 	);
 }
 
-function buildComponentStyles() {
-	var files = [
-		"/Users/henzlymeghie/Development/website-framework/framework/src/build/components/preview/*.html",
-	];
-
-	// Go through each html build file
-	// Create a new css file using the site.css contents and renaming it the same as the current html build file
-	// Extract the unused css from that new css file
-	// Export the purged css file into the build folder
-	return gulp
-		.src(files)
-		.pipe(
-			tap(async function (file) {
-				const siteCss = fs.readFileSync(paths.css.public, "utf8");
-				file.contents = Buffer.from(siteCss);
-			})
-		)
-		.pipe(
-			rename({
-				extname: ".css",
-			})
-		)
-		.pipe(gulp.dest(`${srcPath}/public/components`))
-		.on("error", (err) =>
-			console.error("Error during purgecss task:", err)
-		);
-}
-
-function purgeComponentStyles() {
-	var files = fs.readdirSync(`${srcPath}/public/components`);
-	return Promise.all(
-		files.map((task) => {
-			return new Promise((resolve, reject) => {
-				const filename = task.replace(".css", "");
-				return gulp
-					.src(`${srcPath}/public/components/${filename}.css`)
-					.pipe(
-						purgecss({
-							content: [
-								`/Users/henzlymeghie/Development/website-framework/framework/src/build/components/preview/${filename}.html`,
-							],
-							variables: true,
-						})
-					)
-					.pipe(gulp.dest(`${srcPath}/dist/components`))
-					.on("end", () => resolve());
-			});
-		})
-	);
-}
-
 const buildFiles = gulp.series(
 	cleanFiles,
 	gulp.parallel(buildIcons, buildStyles, buildScripts, buildVendorScripts)
@@ -155,4 +122,4 @@ const development = gulp.series(buildFiles, watchFiles);
 
 exports.build = build;
 exports.default = development;
-exports.components = gulp.series(buildComponentStyles, purgeComponentStyles);
+exports.components = gulp.series(buildComponentStyles);

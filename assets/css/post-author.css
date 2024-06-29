@@ -1,0 +1,11 @@
+.wp-block-post-author {
+	align-items: center;
+}
+.wp-block-post-author__avatar {
+    margin-right: 0.5em;
+}
+.wp-block-post-author__avatar {
+    display: inherit;
+	border-radius: 100px;
+	overflow: hidden;
+}

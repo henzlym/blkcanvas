@@ -19,7 +19,7 @@ function _theme_post_thumbnail_html($html)
 
 	return $html;
 }
-add_filter('post_thumbnail_html', '_theme_post_thumbnail_html');
+// add_filter('post_thumbnail_html', '_theme_post_thumbnail_html');
 
 /**
  * Filters the link to the author page of the author of the current post.
