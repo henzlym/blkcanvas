@@ -92,6 +92,7 @@ get_header(); ?>
 			</div>
 
 			<?php
+			set_query_var('list_item_read_more', true);
 			get_template_part('template-parts/components/list/list', '', array(
 				'list-item-type' => 'projects-image',
 				'title' => 'Projects',

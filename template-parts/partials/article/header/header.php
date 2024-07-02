@@ -1,15 +1,10 @@
-<div class="page-header mb-5">
+<?php the_category(' '); ?>
 
-	<div class="page-categories">
-		<?php the_category(' '); ?>
-	</div>
+<?php the_title('<h1 class="display-3 fw-medium">', '</h1>'); ?>
 
-	<h1 class="display-3 fw-bolder"><?php echo get_the_title(); ?></h1>
+<?php the_excerpt(); ?>
 
-	<p class="lead"><?php echo get_the_excerpt(); ?></p>
-
-	<div class="page-meta small text-body-tertiary d-flex gap-2">
-		<?php get_template_part('template-parts/partials/article/meta/meta'); ?>
-	</div>
-
-</div>
+<section class="page-meta small text-body-tertiary d-flex gap-2">
+	<?php the_author_posts_link() ?>
+	<?php the_date(); ?>
+</section>

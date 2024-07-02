@@ -6,7 +6,9 @@
 				<?php while (have_posts()) : ?>
 					<?php the_post(); ?>
 					<article>
-						<?php get_template_part('template-parts/partials/article/header/header'); ?>
+						<header class="mb-5">
+							<?php get_template_part('template-parts/partials/article/header/header'); ?>
+						</header>
 						<?php echo get_the_post_thumbnail(null, 'large', array('class' => 'img-fluid aspect-ratio-widescreen w-100 object-fit-cover rounded')); ?>
 						<?php get_template_part('template-parts/partials/article/body/body', ''); ?>
 						<?php get_template_part('template-parts/partials/article/footer/footer', ''); ?>

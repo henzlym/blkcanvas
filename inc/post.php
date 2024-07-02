@@ -6,7 +6,7 @@ function _theme_post_thumbnail_html($html)
 {
 	if (is_admin()) return;
 
-	if (is_singular() && !is_front_page() && in_the_loop()) {
+	if (is_singular() && !is_front_page() && in_the_loop() && $html) {
 
 		$html = '
 		<figure class="figure">
@@ -35,7 +35,7 @@ function __theme_the_author_posts_link(string $link): string
 		return '';
 	}
 
-	return '<div class="author text-capitalize"> <span>By </span>' . $link . '</div>';
+	return '<address class="author text-capitalize mb-0"> <span>By </span>' . $link . '</address>';
 }
 add_filter('the_author_posts_link', '__theme_the_author_posts_link', 10);
 
@@ -102,6 +102,15 @@ function _theme_list_item_the_excerpt($the_excerpt)
 	return $the_excerpt;
 }
 
+function _theme_single_the_excerpt($the_excerpt)
+{
+	if (is_single()) {
+		$the_excerpt = '<p class="lead">' . $the_excerpt . '</p>';
+	}
+
+	return $the_excerpt;
+}
+add_filter('get_the_excerpt', '_theme_single_the_excerpt', 10);
 
 function _theme_list_item_the_category(string $thelist, string $separator, string $parents): string
 {
@@ -110,13 +119,27 @@ function _theme_list_item_the_category(string $thelist, string $separator, strin
 		return '';
 	}
 
-	return '<nav class="post-categories text-uppercase mb-3 small">' . $thelist . '</nav>';
+	if (is_single()) {
+		$thelist = sprintf(
+			'<nav class="post-categories text-uppercase mb-3">%s</nav>',
+			$thelist
+		);
+	} else {
+		$thelist = sprintf(
+			'<nav class="post-categories text-uppercase mb-3 small">%s</nav>',
+			$thelist
+		);
+	}
+
+	return $thelist;
 }
 add_filter('the_category', '_theme_list_item_the_category', 10, 3);
 
 function _theme_get_template_part($slug, $name, $args)
 {
-	do_action('qm/debug', $slug);
-	add_filter('get_the_excerpt', '_theme_list_item_the_excerpt', 10);
+	do_action('qm/debug', [get_query_var('list_item_read_more')]);
+	if (get_query_var('list_item_read_more')) {
+		add_filter('get_the_excerpt', '_theme_list_item_the_excerpt', 10);
+	}
 }
 add_action('get_template_part_template-parts/components/list/list', '_theme_get_template_part', 10, 3);
