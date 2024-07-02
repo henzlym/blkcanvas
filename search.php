@@ -1,18 +1,26 @@
 <?php
+
 /**
- * Search results page
+ * The template for displaying archive pages
  *
- * Methods for TimberHelper can be found in the /lib sub-directory
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package  WordPress
- * @subpackage  Timber
- * @since   Timber 0.1
+ * @package sandbox
  */
+?>
 
-$templates = array( 'search.twig', 'archive.twig', 'index.twig' );
-
-$context          = Timber::context();
-$context['title'] = 'Search results for ' . get_search_query();
-$context['posts'] = Timber::get_posts();
-
-Timber::render( $templates, $context );
+<?php get_header(); ?>
+<main>
+	<section class="container-lg my-5">
+		<h1>
+			<?php
+			/* translators: Search query. */
+			printf(__('Search Results for: %s', 'twentyseventeen'), '<span>' . get_search_query() . '</span>');
+			?>
+		</h1>
+		<?php get_template_part('template-parts/components/list/list', '', array(
+			'title' => false
+		)); ?>
+	</section>
+</main>
+<?php get_footer(); ?>

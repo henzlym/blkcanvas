@@ -143,3 +143,15 @@ function _theme_get_template_part($slug, $name, $args)
 	}
 }
 add_action('get_template_part_template-parts/components/list/list', '_theme_get_template_part', 10, 3);
+
+function _theme_set_the_search_query($search_query)
+{
+	if (is_search()) {
+		$search_query = sprintf(
+			'<h1 class="mb-3">%s</h1>',
+			$search_query
+		);
+	}
+	return $search_query;
+}
+add_filter('the_search_query', '_theme_set_the_search_query', 10, 2);
