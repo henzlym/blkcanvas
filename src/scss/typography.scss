@@ -1,0 +1,25 @@
+@use "sass:math";
+
+// Define base font size and increment factor
+$base-font-size: 1rem;
+$increment: 0.25rem;
+
+h1 {
+	font-size: calc(var(--site-font-size, 1rem) * 2.5);
+}
+
+// SASS function to generate font sizes for headings
+@function heading-size($level) {
+	@return $base-font-size + ($increment * (6 - $level));
+}
+
+// Apply the generated font sizes to headings using a loop
+@for $i from 2 through 6 {
+	h#{$i} {
+		font-size: heading-size($i);
+	}
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+	line-height: 1.2;
+}

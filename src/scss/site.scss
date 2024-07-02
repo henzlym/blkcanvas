@@ -1,0 +1,11 @@
+@import "./bootstrap.scss";
+@import "./root.scss";
+
+aside.sidebar {
+	display: grid;
+	row-gap: 1rem;
+}
+.wp-post-image {
+	aspect-ratio: 16/9;
+	object-fit: cover;
+}
