@@ -8,33 +8,36 @@ const gulp = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
 const sassGlob = require("gulp-sass-glob");
 const clean = require("gulp-clean");
-const cleanCSS = require("gulp-clean-css");
+// const cleanCSS = require("gulp-clean-css");
 const concat = require("gulp-concat");
 const purgecss = require("gulp-purgecss");
 const rename = require("gulp-rename");
-const uglify = require("gulp-uglify");
+// const uglify = require("gulp-uglify");
 const named = require("vinyl-named");
-const webpack = require("webpack-stream");
-const webpackCompiler = require("webpack");
-const webpackConfig = require("./webpack.config");
-const tap = require("gulp-tap");
-const fs = require("fs");
-const replace = require("gulp-replace");
+// const webpack = require("webpack-stream");
+// const webpackCompiler = require("webpack");
+// const webpackConfig = require("./webpack.config");
+// const tap = require("gulp-tap");
+// const fs = require("fs");
+// const replace = require("gulp-replace");
 // const bootstrapIcons = require('bootstrap-icons');
 
 const isProduction = false;
 const srcPath = `${__dirname}/src`;
-const publicPath = `${srcPath}/public`;
+const buildPath = `${srcPath}/build`;
 
 const paths = {
 	css: {
-		src: `${srcPath}/scss/site.scss`,
-		public: `${srcPath}/public/css/site.css`,
-		dest: `${publicPath}/css`,
+		src: [`${srcPath}/scss/site.scss`],
+		dest: `${buildPath}/`,
+	},
+	js: {
+		src: [`${srcPath}/js/third-party.js`],
+		dest: `${buildPath}/js`,
 	},
 	icons: {
 		src: `${srcPath}/icons/flaticon.svg`,
-		dest: `${publicPath}/icons`,
+		dest: `${buildPath}/icons`,
 	},
 };
 function buildIcons(params) {
@@ -77,11 +80,13 @@ function buildComponentStyles() {
 }
 
 function buildScripts() {
-	return gulp
-		.src([`${srcPath}/js/*.js`])
-		.pipe(named())
-		.pipe(webpack(webpackConfig, webpackCompiler))
-		.pipe(gulp.dest(`${publicPath}/js`));
+	return (
+		gulp
+			.src([`${srcPath}/js/*.js`])
+			.pipe(named())
+			//.pipe(webpack(webpackConfig, webpackCompiler))
+			.pipe(gulp.dest(`${buildPath}/js`))
+	);
 }
 
 function buildVendorScripts() {
@@ -90,17 +95,28 @@ function buildVendorScripts() {
 			sourcemaps: true,
 		})
 		.pipe(concat("vendor.js"))
-		.pipe(gulp.dest(`${publicPath}/js`));
+		.pipe(gulp.dest(`${buildPath}/js`));
 }
 
 function cleanFiles() {
 	return gulp
-		.src([`${publicPath}/css/**/*`, `${publicPath}/js/**/*`], {
+		.src([`${buildPath}`], {
 			read: false,
 		})
 		.pipe(clean());
 }
-
+function purgeCSS() {
+	return gulp
+		.src("src/build/**/*.css")
+		.pipe(
+			purgecss({
+				content: ["src/purge/**/*.html"],
+				safelist: ["show"],
+				variables: true,
+			})
+		)
+		.pipe(gulp.dest("src/build"));
+}
 function watchFiles() {
 	gulp.watch(
 		[`${srcPath}/site/**/*.scss`, `${srcPath}/scss/**/*.scss`],
@@ -123,3 +139,4 @@ const development = gulp.series(buildFiles, watchFiles);
 exports.build = build;
 exports.default = development;
 exports.components = gulp.series(buildComponentStyles);
+exports.purge = gulp.series(build, purgeCSS);
