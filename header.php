@@ -23,26 +23,30 @@
 			<a class="navbar-brand font-navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
 				<?php echo bloginfo('name'); ?>
 			</a>
+			<?php
+			$header_menu = wp_nav_menu(
+				array(
+					'container'            => 'nav',
+					'container_class'      => 'nav-container ms-auto',
+					'menu_class'           => 'menu nav text-uppercase',
+					'fallback_cb'          => false,
+					'link_class'           => 'nav-link',
+					'theme_location'       => 'primary',
+					'echo'                 => false
+				)
+			);
+			?>
+			<?php if ($header_menu) : ?>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-				<div class="nav-wrapper">
-					<?php
-					wp_nav_menu(
-						array(
-							'container'            => 'nav',
-							'container_class'      => 'nav-container ms-auto',
-							'menu_class'           => 'menu nav text-uppercase',
-							'fallback_cb'          => 'wp_page_menu',
-							'link_class'           => 'nav-link',
-							'theme_location'       => 'primary',
-						)
-					);
-					?>
+				<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+					<div class="nav-wrapper">
+						<?php echo $header_menu; ?>
+					</div>
 				</div>
-			</div>
+			<?php endif; ?>
 		</nav>
 	</header>
 	<?php wp_body_open(); ?>
