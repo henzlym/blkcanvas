@@ -1,0 +1,39 @@
+{
+	"name": "blkcanvas",
+	"version": "1.0.0",
+	"main": "gulpfile.js",
+	"scripts": {
+		"dev": "gulp fractal:start",
+		"build": "gulp fractal:build"
+	},
+	"postcss": {
+		"map": false,
+		"plugins": {
+			"autoprefixer": {}
+		}
+	},
+	"devDependencies": {
+		"bootstrap": "^5.3.3",
+		"bootstrap-icons": "^1.11.3",
+		"gulp": "^5.0.0",
+		"gulp-clean": "^0.4.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-purgecss": "^6.0.0",
+		"gulp-rename": "^2.0.0",
+		"gulp-sass": "^5.1.0",
+		"gulp-sass-glob": "^1.1.0",
+		"module-alias": "^2.2.3",
+		"sass": "^1.77.6",
+		"vinyl-named": "^1.1.0"
+	},
+	"_moduleAliases": {
+		"@root": ".",
+		"@src": "src",
+		"@js": "src/js",
+		"@api": "api-examples"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": ""
+}
