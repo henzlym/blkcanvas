@@ -1,0 +1,94 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/blocks",
+	"version": "0.1.0",
+	"title": "Blocks",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "blocks",
+	"attributes": {
+		"categories": {
+			"type": "array",
+			"items": {
+				"type": "object"
+			}
+		},
+		"selectedAuthor": {
+			"type": "number"
+		},
+		"postsToShow": {
+			"type": "number",
+			"default": 5
+		},
+		"displayPostContent": {
+			"type": "boolean",
+			"default": false
+		},
+		"displayPostContentRadio": {
+			"type": "string",
+			"default": "excerpt"
+		},
+		"excerptLength": {
+			"type": "number",
+			"default": 55
+		},
+		"displayAuthor": {
+			"type": "boolean",
+			"default": false
+		},
+		"displayPostDate": {
+			"type": "boolean",
+			"default": true
+		},
+		"postLayout": {
+			"type": "string",
+			"default": "list"
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"order": {
+			"type": "string",
+			"default": "desc"
+		},
+		"orderBy": {
+			"type": "string",
+			"default": "date"
+		},
+		"displayFeaturedImage": {
+			"type": "boolean",
+			"default": true
+		},
+		"featuredImageAlign": {
+			"type": "string",
+			"enum": ["left", "center", "right"]
+		},
+		"featuredImageSizeSlug": {
+			"type": "string",
+			"default": "thumbnail"
+		},
+		"featuredImageSizeWidth": {
+			"type": "number",
+			"default": null
+		},
+		"featuredImageSizeHeight": {
+			"type": "number",
+			"default": null
+		},
+		"addLinkToFeaturedImage": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

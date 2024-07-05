@@ -1,0 +1,374 @@
+{
+	"id": 1771,
+	"date": "2024-06-02T14:34:09",
+	"date_gmt": "2024-06-02T14:34:09",
+	"guid": {
+		"rendered": "http://wordpress.portfolio.local/?p=1771",
+		"raw": "http://wordpress.portfolio.local/?p=1771"
+	},
+	"modified": "2024-06-30T14:41:52",
+	"modified_gmt": "2024-06-30T14:41:52",
+	"password": "",
+	"slug": "site-optimization-testing",
+	"status": "publish",
+	"type": "post",
+	"link": "http://wordpress.portfolio.local/site-optimization-testing/",
+	"title": {
+		"raw": "Site Optimization Testing",
+		"rendered": "Site Optimization Testing"
+	},
+	"content": {
+		"raw": "<!-- wp:paragraph -->\n<p>Enhance your website's performance and user experience with responsive images! This plugin dynamically serves the most appropriate image sizes for mobile, tablet, and desktop devices, ensuring faster load times and optimized visual quality across all screen sizes.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"id\":7,\"aspectRatio\":\"16/9\",\"scale\":\"cover\",\"sizeSlug\":\"large\",\"linkDestination\":\"none\",\"metadata\":{\"name\":\"new-images\"},\"style\":{\"color\":{\"duotone\":\"var:preset|duotone|blue-red\"},\"border\":{\"width\":\"16px\",\"color\":\"#009b3a\",\"radius\":\"25px\"},\"shadow\":\"var:preset|shadow|sharp\"},\"className\":\"new-images is-style-default\"} -->\n<figure class=\"wp-block-image size-large has-custom-border new-images is-style-default\" id=\"new-images\"><img src=\"http://wordpress.portfolio.local/wp-content/uploads/2024/05/ruslan-valeev-vFySgqntjD8-unsplash-1024x683.jpg\" alt=\"new-images\" class=\"has-border-color wp-image-7\" style=\"border-color:#009b3a;border-width:16px;border-radius:25px;box-shadow:var(--wp--preset--shadow--sharp);aspect-ratio:16/9;object-fit:cover\" title=\"new-images\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:html -->\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/VIDEO_ID\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n\n<!-- /wp:html -->\n\n<!-- wp:html -->\n<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">CBS News poll: After debate, an increasing number of voters don&#39;t think President Biden should be running for reelection.<br> <a href=\"https://t.co/eHOWqWQite\">https://t.co/eHOWqWQite</a></p>&mdash; CBS News (@CBSNews) <a href=\"https://twitter.com/CBSNews/status/1807406231893557571?ref_src=twsrc%5Etfw\">June 30, 2024</a></blockquote> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n<!-- /wp:html -->\n\n<!-- wp:html -->\n<div id=\"fibonacci-div\"></div>\n<div id=\"array-sort-div\"></div>\n<div id=\"prime-calc-div\"></div>\n<div id=\"long-loop-div\"></div>\n<div id=\"image-processing-div\"></div>\n<!-- /wp:html -->\n\n<!-- wp:gallery {\"linkTo\":\"none\"} -->\n<figure class=\"wp-block-gallery has-nested-images columns-default is-cropped\"><!-- wp:image {\"id\":1045,\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"http://wordpress.portfolio.local/wp-content/uploads/2013/03/unicorn-wallpaper-1024x768.jpg\" alt=\"Unicorn Wallpaper\" class=\"wp-image-1045\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:image {\"id\":1687,\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"http://wordpress.portfolio.local/wp-content/uploads/2013/09/dsc20050604_133440_34211.jpg\" alt=\"\" class=\"wp-image-1687\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:image {\"id\":1691,\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"http://wordpress.portfolio.local/wp-content/uploads/2014/01/dsc20050315_145007_132.jpg\" alt=\"\" class=\"wp-image-1691\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:image {\"id\":1686,\"sizeSlug\":\"large\",\"linkDestination\":\"none\"} -->\n<figure class=\"wp-block-image size-large\"><img src=\"http://wordpress.portfolio.local/wp-content/uploads/2013/09/dsc20040724_152504_532.jpg\" alt=\"\" class=\"wp-image-1686\"/></figure>\n<!-- /wp:image --></figure>\n<!-- /wp:gallery -->\n\n<!-- wp:html -->\n<div id=\"map\" style=\"height: 400px; width: 100%;\"></div>\n<!-- /wp:html -->\n\n<!-- wp:html -->\n<div id=\"disqus_thread\"></div>\n<!-- /wp:html -->",
+		"rendered": "\n<p>Enhance your website&#8217;s performance and user experience with responsive images! This plugin dynamically serves the most appropriate image sizes for mobile, tablet, and desktop devices, ensuring faster load times and optimized visual quality across all screen sizes.</p>\n\n\n\n<figure class=\"wp-block-image size-large has-custom-border new-images is-style-default wp-duotone-blue-red\" id=\"new-images\"><img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"http://wordpress.portfolio.local/wp-content/uploads/2024/05/ruslan-valeev-vFySgqntjD8-unsplash-1024x683.jpg\" alt=\"new-images\" class=\"has-border-color wp-image-7\" style=\"border-color:#009b3a;border-width:16px;border-radius:25px;box-shadow:var(--wp--preset--shadow--sharp);aspect-ratio:16/9;object-fit:cover\" title=\"new-images\" srcset=\"http://wordpress.portfolio.local/wp-content/uploads/2024/05/ruslan-valeev-vFySgqntjD8-unsplash-1024x683.jpg 1024w, http://wordpress.portfolio.local/wp-content/uploads/2024/05/ruslan-valeev-vFySgqntjD8-unsplash-720x480.jpg 720w, http://wordpress.portfolio.local/wp-content/uploads/2024/05/ruslan-valeev-vFySgqntjD8-unsplash-360x240.jpg 360w, http://wordpress.portfolio.local/wp-content/uploads/2024/05/ruslan-valeev-vFySgqntjD8-unsplash-960x640.jpg 960w, http://wordpress.portfolio.local/wp-content/uploads/2024/05/ruslan-valeev-vFySgqntjD8-unsplash-1536x1024.jpg 1536w, http://wordpress.portfolio.local/wp-content/uploads/2024/05/ruslan-valeev-vFySgqntjD8-unsplash-2048x1365.jpg 2048w, http://wordpress.portfolio.local/wp-content/uploads/2024/05/ruslan-valeev-vFySgqntjD8-unsplash-540x360.jpg 540w\" sizes=\"(max-width: 1024px) 100vw, 1024px\" /></figure>\n\n\n\n<iframe loading=\"lazy\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/VIDEO_ID\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n\n\n\n\n<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">CBS News poll: After debate, an increasing number of voters don&#39;t think President Biden should be running for reelection.<br> <a href=\"https://t.co/eHOWqWQite\">https://t.co/eHOWqWQite</a></p>&mdash; CBS News (@CBSNews) <a href=\"https://twitter.com/CBSNews/status/1807406231893557571?ref_src=twsrc%5Etfw\">June 30, 2024</a></blockquote> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n\n\n<div id=\"fibonacci-div\"></div>\n<div id=\"array-sort-div\"></div>\n<div id=\"prime-calc-div\"></div>\n<div id=\"long-loop-div\"></div>\n<div id=\"image-processing-div\"></div>\n\n\n\n<figure class=\"wp-block-gallery has-nested-images columns-default is-cropped wp-block-gallery-2 is-layout-flex wp-block-gallery-is-layout-flex\">\n<figure class=\"wp-block-image size-large\"><img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"768\" data-id=\"1045\" src=\"http://wordpress.portfolio.local/wp-content/uploads/2013/03/unicorn-wallpaper-1024x768.jpg\" alt=\"Unicorn Wallpaper\" class=\"wp-image-1045\" srcset=\"http://wordpress.portfolio.local/wp-content/uploads/2013/03/unicorn-wallpaper-1024x768.jpg 1024w, http://wordpress.portfolio.local/wp-content/uploads/2013/03/unicorn-wallpaper-720x540.jpg 720w, http://wordpress.portfolio.local/wp-content/uploads/2013/03/unicorn-wallpaper-360x270.jpg 360w, http://wordpress.portfolio.local/wp-content/uploads/2013/03/unicorn-wallpaper-960x720.jpg 960w, http://wordpress.portfolio.local/wp-content/uploads/2013/03/unicorn-wallpaper-1536x1152.jpg 1536w, http://wordpress.portfolio.local/wp-content/uploads/2013/03/unicorn-wallpaper-540x405.jpg 540w, http://wordpress.portfolio.local/wp-content/uploads/2013/03/unicorn-wallpaper.jpg 1600w\" sizes=\"(max-width: 1024px) 100vw, 1024px\" /></figure>\n\n\n\n<figure class=\"wp-block-image size-large\"><img loading=\"lazy\" decoding=\"async\" width=\"640\" height=\"480\" data-id=\"1687\" src=\"http://wordpress.portfolio.local/wp-content/uploads/2013/09/dsc20050604_133440_34211.jpg\" alt=\"\" class=\"wp-image-1687\" srcset=\"http://wordpress.portfolio.local/wp-content/uploads/2013/09/dsc20050604_133440_34211.jpg 640w, http://wordpress.portfolio.local/wp-content/uploads/2013/09/dsc20050604_133440_34211-360x270.jpg 360w, http://wordpress.portfolio.local/wp-content/uploads/2013/09/dsc20050604_133440_34211-540x405.jpg 540w\" sizes=\"(max-width: 640px) 100vw, 640px\" /></figure>\n\n\n\n<figure class=\"wp-block-image size-large\"><img loading=\"lazy\" decoding=\"async\" width=\"640\" height=\"480\" data-id=\"1691\" src=\"http://wordpress.portfolio.local/wp-content/uploads/2014/01/dsc20050315_145007_132.jpg\" alt=\"\" class=\"wp-image-1691\" srcset=\"http://wordpress.portfolio.local/wp-content/uploads/2014/01/dsc20050315_145007_132.jpg 640w, http://wordpress.portfolio.local/wp-content/uploads/2014/01/dsc20050315_145007_132-360x270.jpg 360w, http://wordpress.portfolio.local/wp-content/uploads/2014/01/dsc20050315_145007_132-540x405.jpg 540w\" sizes=\"(max-width: 640px) 100vw, 640px\" /></figure>\n\n\n\n<figure class=\"wp-block-image size-large\"><img loading=\"lazy\" decoding=\"async\" width=\"640\" height=\"480\" data-id=\"1686\" src=\"http://wordpress.portfolio.local/wp-content/uploads/2013/09/dsc20040724_152504_532.jpg\" alt=\"\" class=\"wp-image-1686\" srcset=\"http://wordpress.portfolio.local/wp-content/uploads/2013/09/dsc20040724_152504_532.jpg 640w, http://wordpress.portfolio.local/wp-content/uploads/2013/09/dsc20040724_152504_532-360x270.jpg 360w, http://wordpress.portfolio.local/wp-content/uploads/2013/09/dsc20040724_152504_532-540x405.jpg 540w\" sizes=\"(max-width: 640px) 100vw, 640px\" /></figure>\n</figure>\n\n\n\n<div id=\"map\" style=\"height: 400px; width: 100%;\"></div>\n\n\n\n<div id=\"disqus_thread\"></div>\n",
+		"protected": false,
+		"block_version": 1
+	},
+	"excerpt": {
+		"raw": "",
+		"rendered": "<p>Enhance your website&#8217;s performance and user experience with responsive images! This plugin dynamically serves the most appropriate image sizes for mobile, tablet, and desktop devices, ensuring faster load times and optimized visual quality across all screen sizes. CBS News poll: After debate, an increasing number of voters don&#39;t think President Biden should be running for [&hellip;]</p>\n",
+		"protected": false
+	},
+	"author": 1,
+	"featured_media": 1772,
+	"comment_status": "open",
+	"ping_status": "open",
+	"sticky": false,
+	"template": "single-two-column",
+	"format": "standard",
+	"meta": {
+		"footnotes": ""
+	},
+	"categories": [115],
+	"tags": [113],
+	"permalink_template": "http://wordpress.portfolio.local/%postname%/",
+	"generated_slug": "site-optimization-testing",
+	"_links": {
+		"self": [
+			{
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/posts/1771"
+			}
+		],
+		"collection": [
+			{
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/posts"
+			}
+		],
+		"about": [
+			{
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/types/post"
+			}
+		],
+		"author": [
+			{
+				"embeddable": true,
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/users/1"
+			}
+		],
+		"replies": [
+			{
+				"embeddable": true,
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/comments?post=1771"
+			}
+		],
+		"version-history": [
+			{
+				"count": 10,
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/posts/1771/revisions"
+			}
+		],
+		"predecessor-version": [
+			{
+				"id": 2003,
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/posts/1771/revisions/2003"
+			}
+		],
+		"wp:featuredmedia": [
+			{
+				"embeddable": true,
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/media/1772"
+			}
+		],
+		"wp:attachment": [
+			{
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/media?parent=1771"
+			}
+		],
+		"wp:term": [
+			{
+				"taxonomy": "category",
+				"embeddable": true,
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/categories?post=1771"
+			},
+			{
+				"taxonomy": "post_tag",
+				"embeddable": true,
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/tags?post=1771"
+			}
+		],
+		"wp:action-publish": [
+			{
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/posts/1771"
+			}
+		],
+		"wp:action-unfiltered-html": [
+			{
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/posts/1771"
+			}
+		],
+		"wp:action-sticky": [
+			{
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/posts/1771"
+			}
+		],
+		"wp:action-assign-author": [
+			{
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/posts/1771"
+			}
+		],
+		"wp:action-create-categories": [
+			{
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/posts/1771"
+			}
+		],
+		"wp:action-assign-categories": [
+			{
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/posts/1771"
+			}
+		],
+		"wp:action-create-tags": [
+			{
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/posts/1771"
+			}
+		],
+		"wp:action-assign-tags": [
+			{
+				"href": "http://wordpress.portfolio.local/wp-json/wp/v2/posts/1771"
+			}
+		],
+		"curies": [
+			{
+				"name": "wp",
+				"href": "https://api.w.org/{rel}",
+				"templated": true
+			}
+		]
+	},
+	"_embedded": {
+		"author": [
+			{
+				"id": 1,
+				"name": "admin",
+				"url": "http://wordpress.portfolio.local",
+				"description": "",
+				"link": "http://wordpress.portfolio.local/author/admin/",
+				"slug": "admin",
+				"avatar_urls": {
+					"24": "http://0.gravatar.com/avatar/ceee080bfb402337ecfa2a889100c09e?s=24&d=mm&r=g",
+					"48": "http://0.gravatar.com/avatar/ceee080bfb402337ecfa2a889100c09e?s=48&d=mm&r=g",
+					"96": "http://0.gravatar.com/avatar/ceee080bfb402337ecfa2a889100c09e?s=96&d=mm&r=g"
+				},
+				"_links": {
+					"self": [
+						{
+							"href": "http://wordpress.portfolio.local/wp-json/wp/v2/users/1"
+						}
+					],
+					"collection": [
+						{
+							"href": "http://wordpress.portfolio.local/wp-json/wp/v2/users"
+						}
+					]
+				}
+			}
+		],
+		"wp:featuredmedia": [
+			{
+				"id": 1772,
+				"date": "2024-06-02T14:33:25",
+				"slug": "thumbnail",
+				"type": "attachment",
+				"link": "http://wordpress.portfolio.local/site-optimization-testing/thumbnail/",
+				"title": {
+					"rendered": "thumbnail"
+				},
+				"author": 1,
+				"featured_media": 0,
+				"caption": {
+					"rendered": ""
+				},
+				"alt_text": "",
+				"media_type": "image",
+				"mime_type": "image/png",
+				"media_details": {
+					"width": 1024,
+					"height": 716,
+					"file": "2024/06/thumbnail.png",
+					"filesize": 11514,
+					"sizes": {
+						"medium": {
+							"file": "thumbnail-720x503.png",
+							"width": 720,
+							"height": 503,
+							"filesize": 24160,
+							"mime_type": "image/png",
+							"source_url": "http://wordpress.portfolio.local/wp-content/uploads/2024/06/thumbnail-720x503.png"
+						},
+						"thumbnail": {
+							"file": "thumbnail-360x252.png",
+							"width": 360,
+							"height": 252,
+							"filesize": 8708,
+							"mime_type": "image/png",
+							"source_url": "http://wordpress.portfolio.local/wp-content/uploads/2024/06/thumbnail-360x252.png"
+						},
+						"medium_large": {
+							"file": "thumbnail-960x671.png",
+							"width": 960,
+							"height": 671,
+							"filesize": 35823,
+							"mime_type": "image/png",
+							"source_url": "http://wordpress.portfolio.local/wp-content/uploads/2024/06/thumbnail-960x671.png"
+						},
+						"small": {
+							"file": "thumbnail-540x378.png",
+							"width": 540,
+							"height": 378,
+							"filesize": 16025,
+							"mime_type": "image/png",
+							"source_url": "http://wordpress.portfolio.local/wp-content/uploads/2024/06/thumbnail-540x378.png"
+						},
+						"full": {
+							"file": "thumbnail.png",
+							"width": 1024,
+							"height": 716,
+							"mime_type": "image/png",
+							"source_url": "http://wordpress.portfolio.local/wp-content/uploads/2024/06/thumbnail.png"
+						}
+					},
+					"image_meta": {
+						"aperture": "0",
+						"credit": "",
+						"camera": "",
+						"caption": "",
+						"created_timestamp": "0",
+						"copyright": "",
+						"focal_length": "0",
+						"iso": "0",
+						"shutter_speed": "0",
+						"title": "",
+						"orientation": "0",
+						"keywords": []
+					}
+				},
+				"source_url": "http://wordpress.portfolio.local/wp-content/uploads/2024/06/thumbnail.png",
+				"_links": {
+					"self": [
+						{
+							"href": "http://wordpress.portfolio.local/wp-json/wp/v2/media/1772"
+						}
+					],
+					"collection": [
+						{
+							"href": "http://wordpress.portfolio.local/wp-json/wp/v2/media"
+						}
+					],
+					"about": [
+						{
+							"href": "http://wordpress.portfolio.local/wp-json/wp/v2/types/attachment"
+						}
+					],
+					"author": [
+						{
+							"embeddable": true,
+							"href": "http://wordpress.portfolio.local/wp-json/wp/v2/users/1"
+						}
+					],
+					"replies": [
+						{
+							"embeddable": true,
+							"href": "http://wordpress.portfolio.local/wp-json/wp/v2/comments?post=1772"
+						}
+					]
+				}
+			}
+		],
+		"wp:term": [
+			[
+				{
+					"id": 115,
+					"link": "http://wordpress.portfolio.local/category/plugins/",
+					"name": "Plugins",
+					"slug": "plugins",
+					"taxonomy": "category",
+					"_links": {
+						"self": [
+							{
+								"href": "http://wordpress.portfolio.local/wp-json/wp/v2/categories/115"
+							}
+						],
+						"collection": [
+							{
+								"href": "http://wordpress.portfolio.local/wp-json/wp/v2/categories"
+							}
+						],
+						"about": [
+							{
+								"href": "http://wordpress.portfolio.local/wp-json/wp/v2/taxonomies/category"
+							}
+						],
+						"wp:post_type": [
+							{
+								"href": "http://wordpress.portfolio.local/wp-json/wp/v2/posts?categories=115"
+							}
+						],
+						"curies": [
+							{
+								"name": "wp",
+								"href": "https://api.w.org/{rel}",
+								"templated": true
+							}
+						]
+					}
+				}
+			],
+			[
+				{
+					"id": 113,
+					"link": "http://wordpress.portfolio.local/tag/hm-plugin/",
+					"name": "hm-plugin",
+					"slug": "hm-plugin",
+					"taxonomy": "post_tag",
+					"_links": {
+						"self": [
+							{
+								"href": "http://wordpress.portfolio.local/wp-json/wp/v2/tags/113"
+							}
+						],
+						"collection": [
+							{
+								"href": "http://wordpress.portfolio.local/wp-json/wp/v2/tags"
+							}
+						],
+						"about": [
+							{
+								"href": "http://wordpress.portfolio.local/wp-json/wp/v2/taxonomies/post_tag"
+							}
+						],
+						"wp:post_type": [
+							{
+								"href": "http://wordpress.portfolio.local/wp-json/wp/v2/posts?tags=113"
+							}
+						],
+						"curies": [
+							{
+								"name": "wp",
+								"href": "https://api.w.org/{rel}",
+								"templated": true
+							}
+						]
+					}
+				}
+			]
+		]
+	}
+}

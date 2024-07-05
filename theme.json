@@ -66,6 +66,15 @@
 			"wideSize": "1320px"
 		},
 		"spacing": {
+			"margin": true,
+			"padding": true,
+			"spacingScale": {
+				"operator": "*",
+				"increment": 1.5,
+				"steps": 7,
+				"mediumStep": 1.5,
+				"unit": "rem"
+			},
 			"units": ["px", "em", "rem", "vh", "vw", "%"]
 		},
 		"typography": {
