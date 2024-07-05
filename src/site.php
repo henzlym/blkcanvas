@@ -13,7 +13,7 @@ class Site_Init
 		$this->site_config = fw_get_site_config();
 
 		add_action('after_setup_theme', array($this, 'theme_supports'));
-		add_action('enqueue_block_assets', array($this, 'enqueue_block_styles'));
+		// add_action('enqueue_block_assets', array($this, 'enqueue_block_styles'));
 		add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
 	}
 

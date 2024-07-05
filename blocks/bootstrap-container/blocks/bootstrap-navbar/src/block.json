@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/bootstrap-navbar",
+	"version": "0.1.0",
+	"title": "Bootstrap Navbar",
+	"category": "widgets",
+	"icon": "menu",
+	"description": "A custom block for adding a Bootstrap navbar.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"navbarBrand": {
+			"type": "string",
+			"default": ""
+		},
+		"selectedMenu": {
+			"type": "number"
+		},
+		"enableSearch": {
+			"type": "boolean",
+			"default": false
+		},
+		"searchLabel": {
+			"type": "string",
+			"default": "Search"
+		},
+		"searchPlaceholder": {
+			"type": "string",
+			"default": "Search"
+		},
+		"searchButtonText": {
+			"type": "string",
+			"default": "Search"
+		}
+	},
+	"textdomain": "bootstrap-navbar",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

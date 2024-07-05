@@ -9,6 +9,7 @@
 		"build": "wp-scripts build",
 		"build:bootstrap-column": "wp-scripts build --webpack-src-dir=blocks/bootstrap-column/src blocks/bootstrap-column/src/index.js --output-path=blocks/bootstrap-column/build",
 		"build:bootstrap-row": "wp-scripts build --webpack-src-dir=blocks/bootstrap-row/src blocks/bootstrap-row/src/index.js --output-path=blocks/bootstrap-row/build",
+		"build:bootstrap-navbar": "wp-scripts build --webpack-src-dir=blocks/bootstrap-navbar/src blocks/bootstrap-navbar/src/index.js --output-path=blocks/bootstrap-navbar/build",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
@@ -16,13 +17,15 @@
 		"plugin-zip": "wp-scripts plugin-zip",
 		"start": "wp-scripts start",
 		"start:bootstrap-column": "wp-scripts start --webpack-src-dir=blocks/bootstrap-column/src blocks/bootstrap-column/src/index.js --output-path=blocks/bootstrap-column/build",
-		"start:bootstrap-row": "wp-scripts start --webpack-src-dir=blocks/bootstrap-row/src blocks/bootstrap-row/src/index.js --output-path=blocks/bootstrap-row/build"
+		"start:bootstrap-row": "wp-scripts start --webpack-src-dir=blocks/bootstrap-row/src blocks/bootstrap-row/src/index.js --output-path=blocks/bootstrap-row/build",
+		"start:bootstrap-navbar": "wp-scripts start --webpack-src-dir=blocks/bootstrap-navbar/src blocks/bootstrap-navbar/src/index.js --output-path=blocks/bootstrap-navbar/build"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^27.9.0",
 		"clsx": "^2.1.1"
 	},
 	"dependencies": {
+		"@wordpress/block-library": "^9.2.0",
 		"bootstrap": "^5.3.3"
 	}
 }
