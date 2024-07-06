@@ -1,19 +1,69 @@
 import { useBlockProps } from "@wordpress/block-editor";
-import clsx from "clsx";
 
-export default function save() {
+export default function save({ attributes }) {
+	const {
+		navbarBrand,
+		selectedMenu,
+		enableSearch,
+		searchLabel,
+		searchPlaceholder,
+		searchButtonText,
+		navbarBrandMaxWidth,
+	} = attributes;
 	const blockProps = useBlockProps.save({
-		className: clsx({
-			"navbar navbar-expand-lg bg-body-tertiary": true,
-		}),
+		className: "navbar navbar-expand-lg bg-body-tertiary",
 	});
+
+	const siteTitle = wp.element.createElement("span", {
+		dangerouslySetInnerHTML: {
+			__html: wp.i18n.__("Your Site Title", "bootstrap-navbar"),
+		},
+	});
+
+	const renderMenuItems = (items, parentId = 0) => {
+		return items
+			.filter((item) => item.parent === parentId)
+			.map((item) => {
+				const children = items.filter((child) => child.parent === item.id);
+				return (
+					<li
+						key={item.id}
+						className={`nav-item ${children.length > 0 ? "dropdown" : ""}`}
+					>
+						<a
+							className={`nav-link ${
+								children.length > 0 ? "dropdown-toggle" : ""
+							}`}
+							href={item.url}
+							{...(children.length > 0 ? { "data-bs-toggle": "dropdown" } : {})}
+						>
+							{item.title.rendered}
+						</a>
+						{children.length > 0 && (
+							<ul className="dropdown-menu">
+								{renderMenuItems(items, item.id)}
+							</ul>
+						)}
+					</li>
+				);
+			});
+	};
 
 	return (
 		<nav {...blockProps}>
 			<div className="container-fluid">
-				<a className="navbar-brand" href="#">
-					Navbar
-				</a>
+				{navbarBrand ? (
+					<img
+						src={navbarBrand}
+						alt={siteTitle}
+						className="navbar-brand"
+						style={{ maxWidth: `${navbarBrandMaxWidth}%` }}
+					/>
+				) : (
+					<a className="navbar-brand" href="#">
+						{siteTitle}
+					</a>
+				)}
 				<button
 					className="navbar-toggler"
 					type="button"
@@ -26,65 +76,28 @@ export default function save() {
 					<span className="navbar-toggler-icon"></span>
 				</button>
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
-						<li className="nav-item">
-							<a className="nav-link active" aria-current="page" href="#">
-								Home
-							</a>
-						</li>
-						<li className="nav-item">
-							<a className="nav-link" href="#">
-								Link
-							</a>
-						</li>
-						<li className="nav-item dropdown">
-							<a
-								className="nav-link dropdown-toggle"
-								href="#"
-								role="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
-								Dropdown
-							</a>
-							<ul className="dropdown-menu">
-								<li>
-									<a className="dropdown-item" href="#">
-										Action
-									</a>
-								</li>
-								<li>
-									<a className="dropdown-item" href="#">
-										Another action
-									</a>
-								</li>
-								<li>
-									<hr className="dropdown-divider" />
-								</li>
-								<li>
-									<a className="dropdown-item" href="#">
-										Something else here
-									</a>
-								</li>
-							</ul>
-						</li>
-						<li className="nav-item">
-							<a className="nav-link disabled" aria-disabled="true">
-								Disabled
-							</a>
-						</li>
-					</ul>
-					<form className="d-flex" role="search">
-						<input
-							className="form-control me-2"
-							type="search"
-							placeholder="Search"
-							aria-label="Search"
-						/>
-						<button className="btn btn-outline-success" type="submit">
-							Search
-						</button>
-					</form>
+					{selectedMenu && (
+						<ul className="navbar-nav me-auto mb-2 mb-lg-0">
+							{renderMenuItems(selectedMenu)}
+						</ul>
+					)}
+					{enableSearch && (
+						<form className="d-flex" role="search">
+							<label htmlFor="navbarSearch" className="visually-hidden">
+								{searchLabel}
+							</label>
+							<input
+								className="form-control me-2"
+								type="search"
+								id="navbarSearch"
+								placeholder={searchPlaceholder}
+								aria-label={searchLabel}
+							/>
+							<button className="btn btn-outline-success" type="submit">
+								{searchButtonText}
+							</button>
+						</form>
+					)}
 				</div>
 			</div>
 		</nav>

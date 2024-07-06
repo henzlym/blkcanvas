@@ -17,9 +17,17 @@ export default function Edit({ attributes, setAttributes }) {
 		searchLabel,
 		searchPlaceholder,
 		searchButtonText,
+		navbarBrandMaxWidth,
+		fullWidth,
+		backgroundColor,
+		linkColor,
 	} = attributes;
 	const blockProps = useBlockProps({
 		className: "navbar navbar-expand-lg bg-body-tertiary",
+		style: {
+			backgroundColor,
+			color: linkColor,
+		},
 	});
 
 	const { title } = useSelect((select) => {
@@ -73,9 +81,14 @@ export default function Edit({ attributes, setAttributes }) {
 
 	return (
 		<nav {...blockProps}>
-			<div className="container-fluid">
+			<div className={fullWidth ? "container-fluid" : "container"}>
 				{navbarBrand ? (
-					<img src={navbarBrand} alt={title} className="navbar-brand" />
+					<img
+						src={navbarBrand}
+						alt={title}
+						className="navbar-brand"
+						style={{ maxWidth: `${navbarBrandMaxWidth}px` }}
+					/>
 				) : (
 					<a className="navbar-brand" href="#">
 						{title}

@@ -11,7 +11,24 @@
 	"supports": {
 		"html": false
 	},
-	"attributes": {},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "transparent"
+		},
+		"textColor": {
+			"type": "string",
+			"default": "inherit"
+		},
+		"tagName": {
+			"type": "string",
+			"default": "div"
+		},
+		"fullWidth": {
+			"type": "boolean",
+			"default": false
+		}
+	},
 	"textdomain": "bootstrap-container",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

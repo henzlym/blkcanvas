@@ -1,6 +1,7 @@
-import { InspectorControls } from "@wordpress/block-editor";
+import { InspectorControls, PanelColorSettings } from "@wordpress/block-editor";
 import {
 	PanelBody,
+	RangeControl,
 	SelectControl,
 	TextControl,
 	ToggleControl,
@@ -15,6 +16,10 @@ export default function Inspector({ attributes, setAttributes }) {
 		searchLabel,
 		searchPlaceholder,
 		searchButtonText,
+		navbarBrandMaxWidth,
+		fullWidth,
+		backgroundColor,
+		linkColor,
 	} = attributes;
 
 	const menus = useSelect((select) => {
@@ -62,7 +67,37 @@ export default function Inspector({ attributes, setAttributes }) {
 						/>
 					</>
 				)}
+				<RangeControl
+					label="Navbar Brand Max Width (px)"
+					value={navbarBrandMaxWidth}
+					onChange={(navbarBrandMaxWidth) =>
+						setAttributes({ navbarBrandMaxWidth })
+					}
+					min={0}
+					max={300}
+				/>
+				<ToggleControl
+					label="Full Width"
+					checked={fullWidth}
+					onChange={(fullWidth) => setAttributes({ fullWidth })}
+				/>
 			</PanelBody>
+			<PanelColorSettings
+				title="Color Settings"
+				initialOpen={false}
+				colorSettings={[
+					{
+						value: backgroundColor,
+						onChange: (color) => setAttributes({ backgroundColor: color }),
+						label: "Background Color",
+					},
+					{
+						value: linkColor,
+						onChange: (color) => setAttributes({ linkColor: color }),
+						label: "Link Color",
+					},
+				]}
+			/>
 		</InspectorControls>
 	);
 }
