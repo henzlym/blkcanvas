@@ -37,7 +37,9 @@ export default function Inspector({ attributes, setAttributes }) {
 					label="Select Menu"
 					value={selectedMenu}
 					options={[{ value: "", label: "None" }, ...menuOptions]}
-					onChange={(selectedMenu) => setAttributes({ selectedMenu })}
+					onChange={(selectedMenu) =>
+						setAttributes({ selectedMenu: parseInt(selectedMenu) })
+					}
 				/>
 				<ToggleControl
 					label="Enable Search Form"

@@ -40,7 +40,7 @@ export default function Edit({ attributes, setAttributes }) {
 		};
 	}, []);
 
-	const { menus, menuItems } = useNavigationEntities(selectedMenu);
+	const { menuItems } = useNavigationEntities(selectedMenu);
 
 	const onSelectImage = (media) => {
 		setAttributes({ navbarBrand: media.url });
