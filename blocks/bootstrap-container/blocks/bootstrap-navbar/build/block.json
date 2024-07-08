@@ -50,6 +50,43 @@
     "linkColor": {
       "type": "string",
       "default": ""
+    },
+    "padding": {
+      "type": "object",
+      "default": {
+        "top": {
+          "default": null,
+          "sm": null,
+          "md": null,
+          "lg": null,
+          "xl": null,
+          "xxl": null
+        },
+        "start": {
+          "default": null,
+          "sm": null,
+          "md": null,
+          "lg": null,
+          "xl": null,
+          "xxl": null
+        },
+        "end": {
+          "default": null,
+          "sm": null,
+          "md": null,
+          "lg": null,
+          "xl": null,
+          "xxl": null
+        },
+        "bottom": {
+          "default": null,
+          "sm": null,
+          "md": null,
+          "lg": null,
+          "xl": null,
+          "xxl": null
+        }
+      }
     }
   },
   "textdomain": "bootstrap-navbar",

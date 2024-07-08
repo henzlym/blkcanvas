@@ -5,9 +5,43 @@ import {
 	SelectControl,
 	TextControl,
 	ToggleControl,
+	__experimentalToggleGroupControl as ToggleGroupControl,
+	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
 } from "@wordpress/components";
 import { store as coreStore } from "@wordpress/core-data";
 import { useSelect } from "@wordpress/data";
+import { useState } from "@wordpress/element";
+
+function ToggleGroupBreakpoints({ activeBreakpoint, setBreakpoint }) {
+	const options = [
+		{ value: "default", label: "All" },
+		{ value: "sm", label: "S" },
+		{ value: "md", label: "M" },
+		{ value: "lg", label: "L" },
+		{ value: "xl", label: "XL" },
+		{ value: "xxl", label: "XXL" },
+	];
+
+	if (!options || options.length === 0) {
+		return null;
+	}
+
+	return (
+		<ToggleGroupControl
+			__nextHasNoMarginBottom
+			isBlock
+			label="Label"
+			onChange={(breakpoint) => setBreakpoint(breakpoint)}
+			value={activeBreakpoint}
+		>
+			{options.map((option) => {
+				const label = option.label;
+				const value = option.value;
+				return <ToggleGroupControlOption label={label} value={value} />;
+			})}
+		</ToggleGroupControl>
+	);
+}
 
 export default function Inspector({ attributes, setAttributes }) {
 	const {
@@ -20,8 +54,11 @@ export default function Inspector({ attributes, setAttributes }) {
 		fullWidth,
 		backgroundColor,
 		linkColor,
+		padding,
 	} = attributes;
+	const [activeBreakpoint, setBreakpoint] = useState("default");
 
+	console.log({ activeBreakpoint, setBreakpoint });
 	const menus = useSelect((select) => {
 		return select(coreStore).getMenus();
 	}, []);
@@ -29,6 +66,42 @@ export default function Inspector({ attributes, setAttributes }) {
 	const menuOptions = menus
 		? menus.map((menu) => ({ value: menu.id, label: menu.name }))
 		: [];
+
+	const breakpoints = ["default", "sm", "md", "lg", "xl", "xxl"];
+
+	const updatePadding = (side, breakpoint, value) => {
+		setAttributes({
+			padding: {
+				...padding,
+				[side]: {
+					...padding[side],
+					[breakpoint]: value,
+				},
+			},
+		});
+	};
+
+	const renderPaddingControls = (side) => {
+		return breakpoints
+			.filter((breakpoint) => breakpoint == activeBreakpoint)
+			.map((breakpoint) => (
+				<RangeControl
+					label={`Padding ${
+						side.charAt(0).toUpperCase() + side.slice(1)
+					} (${breakpoint.toUpperCase()})`}
+					value={padding[side][breakpoint]}
+					onChange={(value) => updatePadding(side, breakpoint, value)}
+					min={0}
+					max={5}
+					key={`${side}-${breakpoint}`}
+					allowReset={true}
+					marks={true}
+					step={1}
+					withInputField={false}
+					initialPosition={3}
+				/>
+			));
+	};
 
 	return (
 		<InspectorControls>
@@ -83,6 +156,10 @@ export default function Inspector({ attributes, setAttributes }) {
 					checked={fullWidth}
 					onChange={(fullWidth) => setAttributes({ fullWidth })}
 				/>
+				<ToggleGroupBreakpoints {...{ activeBreakpoint, setBreakpoint }} />
+				{["top", "start", "end", "bottom"].map((side) =>
+					renderPaddingControls(side),
+				)}
 			</PanelBody>
 			<PanelColorSettings
 				title="Color Settings"

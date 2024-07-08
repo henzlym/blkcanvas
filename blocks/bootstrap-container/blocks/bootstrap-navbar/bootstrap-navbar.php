@@ -110,7 +110,6 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu
 	}
 }
 
-
 function render_bootstrap_navbar_block($attributes)
 {
 	$navbarBrand = $attributes['navbarBrand'];
@@ -123,13 +122,24 @@ function render_bootstrap_navbar_block($attributes)
 	$fullWidth = $attributes['fullWidth'];
 	$backgroundColor = $attributes['backgroundColor'];
 	$linkColor = $attributes['linkColor'];
+	$padding = $attributes['padding'];
 
 	$site_title = get_bloginfo('name');
+
+	$breakpoints = ['default', 'sm', 'md', 'lg', 'xl', 'xxl'];
+	$padding_classes = '';
+	foreach ($padding as $side => $values) {
+		foreach ($breakpoints as $breakpoint) {
+			if (isset($values[$breakpoint])) {
+				$padding_classes .= ' p' . $side[0] . ($breakpoint !== 'default' ? '-' . $breakpoint : '') . '-' . $values[$breakpoint];
+			}
+		}
+	}
 
 	ob_start();
 ?>
 
-	<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: <?php echo esc_attr($backgroundColor); ?>; color: <?php echo esc_attr($linkColor); ?>;">
+	<nav class="navbar navbar-expand-lg bg-body-tertiary <?php echo esc_attr($padding_classes); ?>" style="background-color: <?php echo esc_attr($backgroundColor); ?>; color: <?php echo esc_attr($linkColor); ?>;">
 		<div class="<?php echo $fullWidth ? 'container-fluid' : 'container'; ?>">
 			<?php if ($navbarBrand) : ?>
 				<img src="<?php echo esc_url($navbarBrand); ?>" alt="<?php echo esc_attr($site_title); ?>" class="navbar-brand" style="max-width: <?php echo esc_attr($navbarBrandMaxWidth); ?>px;" />
@@ -167,3 +177,4 @@ function render_bootstrap_navbar_block($attributes)
 <?php
 	return ob_get_clean();
 }
+?>

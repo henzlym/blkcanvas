@@ -21,9 +21,25 @@ export default function Edit({ attributes, setAttributes }) {
 		fullWidth,
 		backgroundColor,
 		linkColor,
+		padding,
 	} = attributes;
+
+	const breakpoints = ["default", "sm", "md", "lg", "xl", "xxl"];
+	const paddingClasses = Object.keys(padding)
+		.map((side) => {
+			return breakpoints
+				.filter((breakpoint) => padding[side][breakpoint])
+				.map((breakpoint) => {
+					return `p${side.charAt(0)}${
+						breakpoint === "default" ? "" : `-${breakpoint}`
+					}-${padding[side][breakpoint]}`;
+				})
+				.join(" ");
+		})
+		.join(" ");
+
 	const blockProps = useBlockProps({
-		className: "navbar navbar-expand-lg bg-body-tertiary",
+		className: `navbar navbar-expand-lg bg-body-tertiary ${paddingClasses}`,
 		style: {
 			backgroundColor,
 			color: linkColor,
