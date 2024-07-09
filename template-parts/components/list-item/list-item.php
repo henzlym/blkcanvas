@@ -1,6 +1,8 @@
 <article <?php post_class('list-item row align-items-start g-3'); ?>>
 
-	<?php the_post_thumbnail('medium', array('class' => 'col-sm-5 img-fluid aspect-ratio-widescreen object-fit-cover')); ?>
+	<figure class="col-sm-5">
+		<?php the_post_thumbnail('medium', array('class' => 'img-fluid aspect-ratio-widescreen object-fit-cover rounded')); ?>
+	</figure>
 
 	<header <?php echo (has_post_thumbnail()) ? 'class="col-sm-7"' : ''; ?>>
 
