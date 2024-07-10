@@ -24,3 +24,14 @@ jobs:
           cd ${{ secrets.PROJECT_DIR }}
           git fetch origin master
           git reset --hard origin/master
+    - name: Deploying Script
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.SSH_TDTN_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          cd ${{ secrets.SSH_TDTN_PROJECT_DIR }}
+          git fetch origin master
+          git reset --hard origin/master
