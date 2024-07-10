@@ -27,7 +27,7 @@ jobs:
     - name: Deploying Script
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host: ${{ secrets.SSH_TDTN_HOST }}
+        host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.SSH_PORT }}
