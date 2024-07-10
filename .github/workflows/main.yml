@@ -24,15 +24,19 @@ jobs:
           site_details="${!site}"
           IFS='|' read -r username port key dir <<< "$site_details"
 
+          echo "Username: $username"
+          echo "Port: $port"
+          echo "Directory: $dir"
+
           mkdir -p ~/.ssh
           echo "$key" > ~/.ssh/${site}_key
           chmod 600 ~/.ssh/${site}_key
 
           echo "Deploying to $username at $dir using port $port"
 
-          ssh $username $port -i ~/.ssh/${site}_key <<EOF
+          ssh $username $port -i ~/.ssh/${site}_key <<-EOF
             cd $dir
             git fetch origin master
             git reset --hard origin/master
-          EOF
+EOF
         done
