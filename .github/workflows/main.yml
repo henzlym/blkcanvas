@@ -34,9 +34,9 @@ jobs:
 
           echo "Deploying to $username at $dir using port $port"
 
-          ssh $username $port -i ~/.ssh/${site}_key <<-EOF
-            cd $dir
-            git fetch origin master
-            git reset --hard origin/master
-EOF
+          ssh -i ~/.ssh/${site}_key $username $port <<EOF
+          cd $dir
+          git fetch origin master
+          git reset --hard origin/master
+          EOF
         done
