@@ -16,10 +16,12 @@ jobs:
       uses: actions/checkout@v4.1.7
 
     - name: Deploying Script
+      env:
+        SITE_HENZLYMEGHIE: ${{ secrets.SITE_HENZLYMEGHIE }}
       run: |
         IFS=',' read -r -a sites <<< "$SITES"
         for site in "${sites[@]}"; do
-          site_details="${{ secrets[site] }}"
+          site_details="${!site}"
           IFS='|' read -r username port key dir <<< "$site_details"
 
           mkdir -p ~/.ssh
