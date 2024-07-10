@@ -8,35 +8,19 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      SITES: "SITE_HENZLYMEGHIE"
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4.1.7
 
     - name: Deploying Script
-      env:
-        SITE_HENZLYMEGHIE: ${{ secrets.SITE_HENZLYMEGHIE }}
-      run: |
-        IFS=',' read -r -a sites <<< "$SITES"
-        for site in "${sites[@]}"; do
-          site_details="${!site}"
-          IFS='|' read -r username port key dir <<< "$site_details"
-
-          echo "Username: $username"
-          echo "Port: $port"
-          echo "Directory: $dir"
-
-          mkdir -p ~/.ssh
-          echo "$key" > ~/.ssh/${site}_key
-          chmod 600 ~/.ssh/${site}_key
-
-          echo "Deploying to $username at $dir using port $port"
-
-          ssh -i ~/.ssh/${site}_key $username $port <<EOF
-          cd $dir
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          cd ${{ secrets.PROJECT_DIR }}
           git fetch origin master
           git reset --hard origin/master
-          EOF
-        done
