@@ -18,6 +18,7 @@ class StarterSite
 		add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
 		add_action('init', array($this, 'register_post_types'));
 		add_action('init', array($this, 'register_taxonomies'));
+		add_action('after_switch_theme', array($this, 'override_media_settings'));
 	}
 
 	/**
@@ -79,7 +80,7 @@ class StarterSite
 			)
 		);
 
-		return apply_filters('theme_get_image_sizes', $sizes);
+		return apply_filters('bca_theme_get_image_sizes', $sizes);
 	}
 
 	public function theme_supports()
@@ -153,6 +154,21 @@ class StarterSite
 			register_nav_menus(
 				$this->site_config['menus']
 			);
+		}
+	}
+
+	public function override_media_settings()
+	{
+
+		$image_sizes = $this->theme_get_image_sizes();
+		$image_options = array('thumbnail', 'medium', 'large');
+		if (is_array($image_sizes) && !empty($image_sizes)) {
+			foreach ($image_sizes as $key => $image_size) {
+				if (!in_array($image_size['name'], $image_options)) continue;
+				$height = ($image_size['height'] == 0) ? null : $image_size['height'];
+				update_option($image_size['name'] . '_size_w', $image_size['width']);
+				update_option($image_size['name'] . '_size_h', $height);
+			}
 		}
 	}
 }
