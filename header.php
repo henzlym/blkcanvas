@@ -28,7 +28,7 @@
 				array(
 					'container'            => 'nav',
 					'container_class'      => 'nav-container ms-auto',
-					'menu_class'           => 'menu nav text-uppercase',
+					'menu_class'           => 'menu nav flex-column flex-lg-row text-uppercase',
 					'fallback_cb'          => false,
 					'link_class'           => 'nav-link',
 					'theme_location'       => 'primary',
