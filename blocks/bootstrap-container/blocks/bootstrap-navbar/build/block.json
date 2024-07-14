@@ -45,7 +45,7 @@
     },
     "backgroundColor": {
       "type": "string",
-      "default": ""
+      "default": "transparent"
     },
     "linkColor": {
       "type": "string",
@@ -87,6 +87,10 @@
           "xxl": null
         }
       }
+    },
+    "navigationAlignment": {
+      "type": "string",
+      "default": ""
     }
   },
   "textdomain": "bootstrap-navbar",

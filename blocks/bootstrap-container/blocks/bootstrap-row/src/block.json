@@ -11,7 +11,12 @@
 	"supports": {
 		"html": false
 	},
-	"attributes": {},
+	"attributes": {
+		"rowAlignment": {
+			"type": "string",
+			"default": ""
+		}
+	},
 	"textdomain": "bootstrap-row",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

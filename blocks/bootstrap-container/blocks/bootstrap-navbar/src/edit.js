@@ -22,6 +22,7 @@ export default function Edit({ attributes, setAttributes }) {
 		backgroundColor,
 		linkColor,
 		padding,
+		navigationAlignment,
 	} = attributes;
 
 	const breakpoints = ["default", "sm", "md", "lg", "xl", "xxl"];
@@ -145,11 +146,12 @@ export default function Edit({ attributes, setAttributes }) {
 				>
 					<span className="navbar-toggler-icon"></span>
 				</button>
-				<div className="collapse navbar-collapse" id="navbarSupportedContent">
+				<div
+					className={`collapse navbar-collapse ${navigationAlignment}`}
+					id="navbarSupportedContent"
+				>
 					{selectedMenu && menuItems && (
-						<ul className="navbar-nav me-auto mb-2 mb-lg-0">
-							{renderMenuItems(menuItems)}
-						</ul>
+						<ul className="navbar-nav">{renderMenuItems(menuItems)}</ul>
 					)}
 					{enableSearch && (
 						<form className="d-flex" role="search">

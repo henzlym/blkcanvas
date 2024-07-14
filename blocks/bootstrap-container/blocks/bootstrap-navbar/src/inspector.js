@@ -30,7 +30,7 @@ function ToggleGroupBreakpoints({ activeBreakpoint, setBreakpoint }) {
 		<ToggleGroupControl
 			__nextHasNoMarginBottom
 			isBlock
-			label="Label"
+			label="Spacing"
 			onChange={(breakpoint) => setBreakpoint(breakpoint)}
 			value={activeBreakpoint}
 		>
@@ -43,6 +43,28 @@ function ToggleGroupBreakpoints({ activeBreakpoint, setBreakpoint }) {
 	);
 }
 
+function ToggleGroupJustifyContent({ value, callback }) {
+	const options = [
+		{ value: "justify-content-start", label: "Left" },
+		{ value: "justify-content-center", label: "Center" },
+		{ value: "justify-content-end", label: "Right" },
+	];
+	return (
+		<ToggleGroupControl
+			__nextHasNoMarginBottom
+			isBlock
+			label="Navigation justify elements"
+			onChange={callback}
+			value={value ?? "justify-content-start"}
+		>
+			{options.map((option) => {
+				const label = option.label;
+				const value = option.value;
+				return <ToggleGroupControlOption label={label} value={value} />;
+			})}
+		</ToggleGroupControl>
+	);
+}
 export default function Inspector({ attributes, setAttributes }) {
 	const {
 		selectedMenu,
@@ -55,6 +77,7 @@ export default function Inspector({ attributes, setAttributes }) {
 		backgroundColor,
 		linkColor,
 		padding,
+		navigationAlignment,
 	} = attributes;
 	const [activeBreakpoint, setBreakpoint] = useState("default");
 
@@ -160,6 +183,14 @@ export default function Inspector({ attributes, setAttributes }) {
 				{["top", "start", "end", "bottom"].map((side) =>
 					renderPaddingControls(side),
 				)}
+			</PanelBody>
+			<PanelBody title="Nav Settings" initialOpen={true}>
+				<ToggleGroupJustifyContent
+					value={navigationAlignment}
+					callback={(value) => {
+						setAttributes({ navigationAlignment: value });
+					}}
+				/>
 			</PanelBody>
 			<PanelColorSettings
 				title="Color Settings"

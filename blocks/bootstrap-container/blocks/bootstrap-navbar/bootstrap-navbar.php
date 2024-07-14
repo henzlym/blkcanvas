@@ -136,6 +136,8 @@ function render_bootstrap_navbar_block($attributes)
 		}
 	}
 
+	$nav_alignment = $attributes['navigationAlignment'];
+
 	ob_start();
 ?>
 
@@ -149,13 +151,14 @@ function render_bootstrap_navbar_block($attributes)
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<div class="collapse navbar-collapse <?php echo esc_attr($nav_alignment); ?>" id="navbarSupportedContent">
 				<?php if ($selectedMenu) : ?>
 					<?php
 					wp_nav_menu(array(
 						'menu' => $selectedMenu,
 						'container' => false,
-						'menu_class' => 'navbar-nav me-auto mb-2 mb-lg-0',
+						'container_class' => 'nav-container ms-auto',
+						'menu_class' => 'navbar-nav',
 						'fallback_cb' => '__return_false',
 						'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 						'depth' => 2,

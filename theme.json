@@ -391,6 +391,16 @@
 			"name": "footer",
 			"title": "Footer",
 			"area": "footer"
+		},
+		{
+			"name": "one-column-layout",
+			"title": "One Column Layout",
+			"area": "uncategorized"
+		},
+		{
+			"name": "two-column-layout",
+			"title": "Two Column Layout",
+			"area": "uncategorized"
 		}
 	],
 	"customTemplates": [
