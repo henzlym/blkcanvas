@@ -68,13 +68,38 @@
 		"spacing": {
 			"margin": true,
 			"padding": true,
-			"spacingScale": {
-				"operator": "*",
-				"increment": 1.5,
-				"steps": 7,
-				"mediumStep": 1.5,
-				"unit": "rem"
-			},
+			"spacingSizes": [
+				{
+					"slug": "0",
+					"size": "0",
+					"name": "0"
+				},
+				{
+					"slug": "1",
+					"size": "0.25rem",
+					"name": "1"
+				},
+				{
+					"slug": "2",
+					"size": "0.5rem",
+					"name": "2"
+				},
+				{
+					"slug": "3",
+					"size": "1rem",
+					"name": "3"
+				},
+				{
+					"slug": "4",
+					"size": "1.5rem",
+					"name": "4"
+				},
+				{
+					"slug": "5",
+					"size": "3rem",
+					"name": "5"
+				}
+			],
 			"units": ["px", "em", "rem", "vh", "vw", "%"]
 		},
 		"typography": {
