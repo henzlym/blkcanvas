@@ -22,8 +22,8 @@ class Site_Init
 	 */
 	public function enqueue_block_styles()
 	{
-		wp_enqueue_style('site-main', get_template_directory_uri() . '/frontend/src/public/css/site.css', array(), '1.0.0');
-		wp_enqueue_script('blkcanvas-scripts', get_template_directory_uri() . '/frontend/src/public/js/scripts.js', [], '1.0.0', true);
+		// wp_enqueue_style('site-main', get_template_directory_uri() . '/frontend/src/public/css/site.css', array(), '1.0.0');
+		wp_enqueue_script('blkcanvas-scripts', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', [], '', true);
 	}
 
 	/**
@@ -31,8 +31,8 @@ class Site_Init
 	 */
 	public function enqueue_styles()
 	{
-		wp_enqueue_style('site-main', get_stylesheet_directory_uri() . '/frontend/src/public/css/site.css', array(), '1.0.0');
-		wp_enqueue_script('blkcanvas-scripts', get_template_directory_uri() . '/frontend/src/public/js/scripts.js', [], '1.0.0', true);
+		// wp_enqueue_style('site-main', get_stylesheet_directory_uri() . '/frontend/src/public/css/site.css', array(), '1.0.0');
+		wp_enqueue_script('blkcanvas-scripts', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', [], '', true);
 	}
 
 
