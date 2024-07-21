@@ -6,26 +6,31 @@
 		"dev": "gulp fractal:start",
 		"build": "gulp fractal:build"
 	},
-	"postcss": {
-		"map": false,
-		"plugins": {
-			"autoprefixer": {}
-		}
-	},
 	"devDependencies": {
+		"@fullhuman/postcss-purgecss": "^6.0.0",
+		"autoprefixer": "^10.4.19",
 		"bootstrap": "^5.3.3",
 		"bootstrap-icons": "^1.11.3",
+		"cssnano": "^7.0.4",
 		"gulp": "^5.0.0",
 		"gulp-clean": "^0.4.0",
 		"gulp-concat": "^2.6.1",
+		"gulp-postcss": "^10.0.0",
 		"gulp-purgecss": "^6.0.0",
 		"gulp-rename": "^2.0.0",
 		"gulp-sass": "^5.1.0",
 		"gulp-sass-glob": "^1.1.0",
 		"module-alias": "^2.2.3",
+		"puppeteer": "^22.13.1",
+		"require-dir": "^1.2.0",
 		"sass": "^1.77.6",
 		"vinyl-named": "^1.1.0"
 	},
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"not dead"
+	],
 	"_moduleAliases": {
 		"@root": ".",
 		"@src": "src",
@@ -35,5 +40,8 @@
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
-	"description": ""
+	"description": "",
+	"dependencies": {
+		"latest": "^0.2.0"
+	}
 }
