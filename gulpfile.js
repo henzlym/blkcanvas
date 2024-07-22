@@ -15,3 +15,4 @@ gulp.task("build", build);
 gulp.task("default", development);
 gulp.task("components", gulp.series("component-styles"));
 gulp.task("criticalcss", gulp.series("criticalcss"));
+gulp.task("combine-css", gulp.series("combine-css"));
