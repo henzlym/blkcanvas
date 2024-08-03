@@ -7,7 +7,7 @@
  * @param object $item    The current menu item.
  * @return array (maybe) modified nav menu class.
  */
-function add_nav_menu_css_class($classes, $item)
+function bca_add_nav_menu_css_class($classes, $item)
 {
 	$classes[] = "nav-item";
 
@@ -22,7 +22,7 @@ function add_nav_menu_css_class($classes, $item)
 
 	return $classes;
 }
-add_filter('nav_menu_css_class', 'add_nav_menu_css_class', 10, 2);
+add_filter('nav_menu_css_class', 'bca_add_nav_menu_css_class', 10, 2);
 
 /**
  * Filters the HTML attributes applied to a menu item's anchor element.
@@ -43,7 +43,7 @@ add_filter('nav_menu_css_class', 'add_nav_menu_css_class', 10, 2);
  * @param stdClass $args      An object of wp_nav_menu() arguments.
  * @param int      $depth     Depth of menu item. Used for padding.
  */
-function add_nav_menu_link_attributes($atts, $item, $args, $depth)
+function bca_add_nav_menu_link_attributes($atts, $item, $args, $depth)
 {
 	if (isset($args->link_class)) {
 		$atts['class'] = $args->link_class;
@@ -67,7 +67,7 @@ function add_nav_menu_link_attributes($atts, $item, $args, $depth)
 
 	return $atts;
 }
-add_filter('nav_menu_link_attributes', 'add_nav_menu_link_attributes', 1, 4);
+add_filter('nav_menu_link_attributes', 'bca_add_nav_menu_link_attributes', 1, 4);
 
 /**
  * Filters the CSS class(es) applied to a menu list element.
@@ -78,9 +78,22 @@ add_filter('nav_menu_link_attributes', 'add_nav_menu_link_attributes', 1, 4);
  * @param stdClass $args    An object of `wp_nav_menu()` arguments.
  * @param int      $depth   Depth of menu item. Used for padding.
  */
-function add_nav_menu_submenu_css_class($classes, $args, $depth): array
+function bca_add_nav_menu_submenu_css_class($classes, $args, $depth): array
 {
 	$classes[] = 'dropdown-menu';
 	return $classes;
 }
-add_filter('nav_menu_submenu_css_class', 'add_nav_menu_submenu_css_class', 10, 3);
+add_filter('nav_menu_submenu_css_class', 'bca_add_nav_menu_submenu_css_class', 10, 3);
+
+function bca_paginate_links_output(string $r, array $args): string
+{
+
+	$r = str_replace('ul class=\'page-numbers\'', 'ul class=\'pagination\'', $r);
+	$r = str_replace('page-numbers', 'page-numbers page-link', $r);
+	$r = str_replace('current', 'current active', $r);
+	$r = str_replace('dots', 'dots disabled', $r);
+	$r = str_replace('<li>', '<li class="page-item">', $r);
+
+	return $r;
+}
+add_filter('paginate_links_output', 'bca_paginate_links_output', 10, 2);
