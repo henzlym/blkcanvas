@@ -6,6 +6,8 @@ require_once __DIR__ . '/inc/taxonomies.php';
 require_once __DIR__ . '/inc/navigation.php';
 require_once __DIR__ . '/inc/post.php';
 require_once __DIR__ . '/inc/post-types.php';
+require_once __DIR__ . '/inc/styles.php';
+require_once __DIR__ . '/inc/cache.php';
 
 
 function _theme_paginate_links_output(string $r, array $args): string
